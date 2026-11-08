@@ -98,5 +98,57 @@ Embed URLs follow `https://html-classic.itch.zone/html/<id>/.../index.html`. The
 
 **Build order:** shell and theme -> games data file (JSON, one source of truth) -> games grid and game page template -> home -> services/about/contact -> SEO/OG/analytics -> deploy and verify `niftygamesstudios.in`.
 
-## 5. Open questions
-See the questions posted in the chat; answers should be appended here before the build session.
+## 5. Decisions from the owner (2026-11-08) - treat as requirements
+- **Brand:** "Nifty Games Studios" is the owner's self-made game studio used for freelance work. The GitHub username/repo name (`dr-nithish-kanna`) is unrelated: **do not mention being a doctor/medical anything; keep the two separate.** Site is the studio's, written in first person as the developer.
+- **Goal:** portfolio + win freelance clients (Fiverr and direct).
+- **Contact channels:** Fiverr, email, Instagram. The old site contained **no** real email or Instagram, and its Fiverr link was just `https://fiverr.com`. **Use clearly marked placeholder constants (one `site.config` file) and the owner will supply real values later.** Do not invent any.
+- **Claims:** "5+ years of Unity experience" is true and may be used. The two testimonials are real clients and may be used: Typing Bird (Studio Director) and Internet Game (Lead Developer).
+- **Games:** show **all 22** with a polished look. **Nothing playable on the site**: no iframes or embeds. Each game links out to its itch.io page. Hide nothing, including Sample Game IG (give it a neutral treatment). Descriptions are not provided: the build session should write short, honest copy from known facts (genre, status, platform, tech) and flag it for owner review. Do not invent features or numbers.
+- **Old-site-only games** (Hangman Mobile, Brick Breaker Classic, 3D Stack, Ball Fall): not confirmed to exist on itch. The owner said "all 22" so the **22 itch games are the canonical list**. Ask the owner before listing the four extras.
+- **Pricing:** do not mention prices or rates anywhere. Use "contact for a quote" style wording only if needed.
+- **Direct clients welcome**, not Fiverr-only. Primary CTA = contact; secondary = Fiverr.
+- **Logo:** will be supplied later; it is the same image as the `NiftyGamesStudios` GitHub avatar. Reference it for colour choice. Use a placeholder slot (`/assets/logo.svg|png`) and a text wordmark fallback.
+- **Colours:** must look professional (see section 6).
+- **Devlog/blog:** include a Devlog section that the owner will fill later. Ship it with a "first post coming soon" state and a very simple way to add a post (one Markdown file per post).
+- **Domain:** `niftygamesstudios.in` is final (keep `CNAME`).
+- **Analytics:** Google Analytics (GA4). Measurement ID not yet provided: use a config placeholder and load GA only when an ID is set. Consider a lightweight cookie/consent notice (the audience may include EU clients).
+
+## 6. Logo and colour direction
+The logo (GitHub avatar of `NiftyGamesStudios`, 460x460) is a circle filled with a vertical gradient from bright cyan `#06E7FE` (top) to azure `#3DBCFE` (bottom), with a charcoal `#212023` calligraphic "GN" monogram. Dominant colours extracted: `#26CFFE`, `#3DBCFE`, `#06E7FE`, `#177E9C` (shadow), `#212023`.
+
+Cyan is the brand colour; it is vivid, so the rest of the palette should be calm and neutral so it reads as professional rather than neon.
+
+**Recommended: Option A, "Midnight + Cyan" (dark, the studio/game feel; keeps the old site's dark mood)**
+| Role | Hex | Contrast notes |
+|---|---|---|
+| Background | `#0A1020` | |
+| Surface/card | `#111A2E` | |
+| Border | `#22304A` | |
+| Text | `#E6EDF7` | 16.1:1 on bg |
+| Muted text | `#93A4BF` | 7.5:1 |
+| Primary accent (links, buttons) | `#22D3EE` | 10.5:1 on bg; dark text on it 10.5:1 |
+| Secondary accent | `#38A8F8` | 7.3:1 |
+| Gradient (hero, logo glow) | `#06E7FE -> #3DBCFE` | matches logo exactly |
+| Highlight (rare, e.g. "New" badge) | `#F5B84B` warm amber | |
+
+**Option B, "Clean Light" (more corporate, better if clients are non-gamers)**: background `#F6F9FC`, text `#0F172A` (16.9:1), muted `#475569` (7.2:1), primary `#0E7490` deep cyan (5.1:1 as link text; white on it 5.4:1), accent gradient from the logo for hero only, surface white with `#E2E8F0` borders. Note: the bright logo cyan fails contrast as text on light backgrounds (`#0891B2` is only 3.5:1), so on light it must be used for fills/graphics only.
+
+**Option C, hybrid**: dark hero and footer (Option A) with light content sections (Option B). Most "agency" feel, most design work.
+
+Rules: all text must meet WCAG AA (4.5:1). Never put bright cyan text on white. Use the charcoal `#212023` from the logo as the dark text/button colour on cyan fills.
+
+## 7. Technical explainer and decision
+- **Static site:** the finished website is just HTML, CSS and JS files. A visitor's browser downloads them as they are. No server code runs per request. GitHub Pages is built for this: free, fast, secure, no maintenance.
+- **Node build:** a build step runs on the developer's machine (or CI) using Node.js to turn source (components, Markdown posts, a games JSON file) into those static files. Next.js/Astro need one. The *output* is still static; the build is only a tool. A "no build" site means the files you write are the files that are published.
+- **Decision:** use a static site, with a small build step only if it earns its keep. **Recommended: Astro** (static output, Markdown devlog posts with zero runtime, ships almost no JS, deploys to GitHub Pages via a GitHub Actions workflow). Fallback if the owner wants zero tooling: plain HTML/CSS/JS with `games.json` and a small script. The devlog "one Markdown file per post" requirement is easiest with Astro.
+- Do **not** reuse the old Next.js project directly (React 19 / Next 16 / 55 unused shadcn components): it is heavier than needed and a server-oriented framework.
+- GA4: add via gtag snippet gated on the config ID.
+
+## 8. Remaining open items (not blockers)
+1. Real Fiverr URL, email, Instagram handle (owner will provide; use placeholders until then).
+2. Logo files (use GitHub avatar for now: `https://avatars.githubusercontent.com/NiftyGamesStudios`).
+3. GA4 measurement ID.
+4. Confirm colour option (A recommended).
+5. Confirm Astro vs plain HTML/CSS/JS.
+6. Whether the 4 old-site-only games should be listed.
+7. Short real descriptions per game (optional; otherwise the build session drafts them for review).
