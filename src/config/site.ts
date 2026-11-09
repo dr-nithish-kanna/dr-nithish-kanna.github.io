@@ -20,8 +20,7 @@ export const site = {
   ogImage: '/og/default.png',
 
   contact: {
-    // TODO(owner): your public email, e.g. 'hello@niftygamesstudios.in'
-    email: 'YOUR_EMAIL@example.com',
+    email: 'niftygames17@gmail.com',
     fiverr: 'https://www.fiverr.com/niftygames17/',
     instagram: 'https://www.instagram.com/niftygamesstudios',
     // Real, public profile (from the itch.io account).
@@ -29,8 +28,8 @@ export const site = {
   },
 
   analytics: {
-    // TODO(owner): GA4 Measurement ID, e.g. 'G-XXXXXXXXXX'. Leave '' to disable analytics entirely.
-    ga4Id: '',
+    // GA4 Measurement ID ('G-...'). Set to '' to disable analytics entirely.
+    ga4Id: 'G-DQ081N3ZY8',
   },
 } as const;
 

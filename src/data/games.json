@@ -134,8 +134,8 @@
       "Typing",
       "Racing"
     ],
-    "description": "A typing game with a racing feel.",
-    "description_status": "draft - owner to review",
+    "description": "Race with your keyboard. Every word you type correctly boosts your car, so type fast and stay accurate to pull ahead and reach the finish line first.",
+    "description_status": "written for the site (owner approved)",
     "featured": true
   },
   {
@@ -153,8 +153,8 @@
       "Typing",
       "Prototype"
     ],
-    "description": "A typing prototype in the Hook family of games.",
-    "description_status": "draft - owner to review"
+    "description": "A typing twist on fishing. Type the words that appear to cast your hook and reel in the catch before it gets away.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "type-for-tusker",
@@ -170,8 +170,8 @@
     "tags": [
       "Typing"
     ],
-    "description": "A typing game starring a tusker.",
-    "description_status": "draft - owner to review"
+    "description": "Help a friendly elephant on its journey by typing the words on screen. Accurate typing keeps the tusker moving, while mistakes slow it down.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "snaketyping",
@@ -188,8 +188,8 @@
       "Typing",
       "Arcade"
     ],
-    "description": "The classic snake game, driven by typing.",
-    "description_status": "draft - owner to review"
+    "description": "The classic snake game, steered with your keyboard. Type words to guide the snake to its food and keep it growing without crashing.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "balloon-blast-typing",
@@ -206,8 +206,8 @@
       "Typing",
       "Arcade"
     ],
-    "description": "Type to pop the balloons.",
-    "description_status": "draft - owner to review"
+    "description": "Balloons float up carrying words. Type each word to pop its balloon before it drifts away. A quick, colourful way to practise typing.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "ducktypehunt",
@@ -224,8 +224,8 @@
       "Typing",
       "Arcade"
     ],
-    "description": "A duck-hunt style game where you type to take your shots.",
-    "description_status": "draft - owner to review"
+    "description": "A duck-hunt style shooter for typists. Type the word on each duck to take your shot, and clear the sky before they fly off.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "boat-rush",
@@ -241,8 +241,8 @@
     "tags": [
       "Racing"
     ],
-    "description": "A fast boat racing game.",
-    "description_status": "draft - owner to review"
+    "description": "Speed across the water, weave between obstacles and keep your boat on course in this arcade racer you can play in the browser.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "quad-race",
@@ -258,8 +258,8 @@
     "tags": [
       "Racing"
     ],
-    "description": "A quad bike racing game.",
-    "description_status": "draft - owner to review"
+    "description": "Jump on a quad bike and race over rough terrain. Hold your line through the turns and keep your speed up all the way to the finish.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "moto-rush",
@@ -275,8 +275,8 @@
     "tags": [
       "Racing"
     ],
-    "description": "A fast motorbike racing game.",
-    "description_status": "draft - owner to review"
+    "description": "An arcade motorbike racer. Dodge traffic and obstacles at high speed and see how far you can ride.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "tank-defence",
@@ -293,8 +293,8 @@
       "Defence",
       "Tanks"
     ],
-    "description": "A tank defence game.",
-    "description_status": "draft - owner to review"
+    "description": "Take command of a tank and hold your ground. Aim, fire and stop the incoming enemies before they break through your defences.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "knight-fight",
@@ -311,8 +311,8 @@
       "Action",
       "Fantasy"
     ],
-    "description": "A knight combat game.",
-    "description_status": "draft - owner to review"
+    "description": "Put on your armour and fight close-quarters sword battles. Time your attacks and blocks to beat each opponent.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "little-jumper",
@@ -329,8 +329,8 @@
       "Platformer",
       "2D"
     ],
-    "description": "A small jumping platformer.",
-    "description_status": "draft - owner to review"
+    "description": "A small hero with a big jump. Hop across platforms, time your leaps and avoid the drops in this simple 2D platformer.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "rainbow-popcorn",
@@ -346,8 +346,8 @@
     "tags": [
       "Casual"
     ],
-    "description": "A colourful casual popcorn game.",
-    "description_status": "draft - owner to review"
+    "description": "Pop colourful kernels and collect as much rainbow popcorn as you can in this bright, cheerful casual game.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "fruit-fall",
@@ -363,8 +363,8 @@
     "tags": [
       "Casual"
     ],
-    "description": "A casual game about falling fruit.",
-    "description_status": "draft - owner to review"
+    "description": "Fruit is falling from the sky. Move to catch it before it hits the ground in this easy-to-learn casual game.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "spinnyfunny",
@@ -380,8 +380,8 @@
     "tags": [
       "Casual"
     ],
-    "description": "A playful spinning casual game.",
-    "description_status": "draft - owner to review"
+    "description": "A playful casual game built around spinning. Time your taps as things spin, rack up points and see how long you can keep going.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "skibidi-panda",
@@ -397,8 +397,8 @@
     "tags": [
       "Casual"
     ],
-    "description": "A fun, light-hearted panda game.",
-    "description_status": "draft - owner to review"
+    "description": "A light-hearted casual game starring a goofy panda. Quick to pick up and made for short, silly play sessions.",
+    "description_status": "written for the site (owner approved)"
   },
   {
     "slug": "sample-game-ig",
@@ -414,8 +414,8 @@
     "tags": [
       "Sample"
     ],
-    "description": "A sample project.",
-    "description_status": "draft - owner to review",
+    "description": "A small sample project made in Unity, used to test browser builds and publishing on itch.io.",
+    "description_status": "written for the site (owner approved)",
     "note": "Likely a test build. Neutral treatment."
   },
   {
