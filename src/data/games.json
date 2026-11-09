@@ -117,7 +117,9 @@
     "description": "Explore the area, defeat enemies, collect power-ups and have fun in this fantasy stickman adventure for Android.",
     "description_status": "from itch tagline, lightly edited",
     "screenshots_on_itch": 8,
-    "featured": true
+    "featured": true,
+    "image": "/images/games/stickboy.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "nitro-type-pro",
@@ -134,9 +136,11 @@
       "Typing",
       "Racing"
     ],
-    "description": "Race with your keyboard. Every word you type correctly boosts your car, so type fast and stay accurate to pull ahead and reach the finish line first.",
-    "description_status": "written for the site (owner approved)",
-    "featured": true
+    "description": "Pick your car and race three rivals by typing the passage on screen. Every correct word pushes your car forward, and a live WPM meter shows how fast you're going.",
+    "description_status": "written from gameplay (owner approved)",
+    "featured": true,
+    "image": "/images/games/nitro-type-pro.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "typehook",
@@ -153,8 +157,10 @@
       "Typing",
       "Prototype"
     ],
-    "description": "A typing twist on fishing. Type the words that appear to cast your hook and reel in the catch before it gets away.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A fishing game for typists. Each fish carries a letter: type it to hook the fish and score. Choose a lesson such as the home row to practise specific keys.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/typehook.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "type-for-tusker",
@@ -170,8 +176,10 @@
     "tags": [
       "Typing"
     ],
-    "description": "Help a friendly elephant on its journey by typing the words on screen. Accurate typing keeps the tusker moving, while mistakes slow it down.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A UFO is trying to beam up the elephant. Type the words on screen to keep the tusker running and escape before it's pulled away.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/type-for-tusker.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "snaketyping",
@@ -180,7 +188,7 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Typing",
+    "category": "Typing / Arcade",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/snaketyping",
     "source": "itch",
@@ -188,8 +196,10 @@
       "Typing",
       "Arcade"
     ],
-    "description": "The classic snake game, steered with your keyboard. Type words to guide the snake to its food and keep it growing without crashing.",
-    "description_status": "written for the site (owner approved)"
+    "description": "The classic snake game, steered with your keyboard. Type the letter shown on each side of the snake's head to turn, then guide it to the fruit and keep growing.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/snaketyping.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "balloon-blast-typing",
@@ -198,7 +208,7 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Typing",
+    "category": "Typing / Arcade",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/balloon-blast-typing",
     "source": "itch",
@@ -206,8 +216,10 @@
       "Typing",
       "Arcade"
     ],
-    "description": "Balloons float up carrying words. Type each word to pop its balloon before it drifts away. A quick, colourful way to practise typing.",
-    "description_status": "written for the site (owner approved)"
+    "description": "Lettered balloons float up past a slingshot. Type a balloon's letter to shoot it down before it escapes. Choose your difficulty and lesson rows, and keep your five lives.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/balloon-blast-typing.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "ducktypehunt",
@@ -216,7 +228,7 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Typing",
+    "category": "Typing / Arcade",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/ducktypehunt",
     "source": "itch",
@@ -224,8 +236,10 @@
       "Typing",
       "Arcade"
     ],
-    "description": "A duck-hunt style shooter for typists. Type the word on each duck to take your shot, and clear the sky before they fly off.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A fairground shooting gallery for typists. Rows of rubber ducks slide past, each with a word above it. Type the word to hit the duck before time runs out.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/ducktypehunt.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "boat-rush",
@@ -234,15 +248,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Racing",
+    "category": "Typing / Racing",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/boat-rush",
     "source": "itch",
     "tags": [
+      "Typing",
       "Racing"
     ],
-    "description": "Speed across the water, weave between obstacles and keep your boat on course in this arcade racer you can play in the browser.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A typing race on the water. Pick your boat and type the passage to speed past three rival racers, with your WPM shown live as you go.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/boat-rush.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "quad-race",
@@ -251,15 +268,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Racing",
+    "category": "Typing / Racing",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/quad-race",
     "source": "itch",
     "tags": [
+      "Typing",
       "Racing"
     ],
-    "description": "Jump on a quad bike and race over rough terrain. Hold your line through the turns and keep your speed up all the way to the finish.",
-    "description_status": "written for the site (owner approved)"
+    "description": "Race quad bikes across the desert by typing. Choose your quad, type the passage as fast and accurately as you can, and beat three rivals to the finish.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/quad-race.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "moto-rush",
@@ -268,15 +288,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Racing",
+    "category": "Typing / Racing",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/moto-rush",
     "source": "itch",
     "tags": [
+      "Typing",
       "Racing"
     ],
-    "description": "An arcade motorbike racer. Dodge traffic and obstacles at high speed and see how far you can ride.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A motorbike typing race. Choose your bike, type the passage to accelerate, and overtake three rival riders while the WPM meter tracks your speed.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/moto-rush.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "tank-defence",
@@ -293,8 +316,10 @@
       "Defence",
       "Tanks"
     ],
-    "description": "Take command of a tank and hold your ground. Aim, fire and stop the incoming enemies before they break through your defences.",
-    "description_status": "written for the site (owner approved)"
+    "description": "Your tank holds the road while enemy cars close in from both sides. Aim the turret and fire to stop them before they reach you.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/tank-defence.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "knight-fight",
@@ -303,16 +328,19 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Action",
+    "category": "Typing / Action",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/knight-fight",
     "source": "itch",
     "tags": [
+      "Typing",
       "Action",
       "Fantasy"
     ],
-    "description": "Put on your armour and fight close-quarters sword battles. Time your attacks and blocks to beat each opponent.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A knight stands guard as bats and slimes attack, each marked with a letter. Type the letter to strike that enemy down before it reaches you, and push through the levels.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/knight-fight.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "little-jumper",
@@ -321,16 +349,19 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Platformer",
+    "category": "Typing / Platformer",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/little-jumper",
     "source": "itch",
     "tags": [
+      "Typing",
       "Platformer",
       "2D"
     ],
-    "description": "A small hero with a big jump. Hop across platforms, time your leaps and avoid the drops in this simple 2D platformer.",
-    "description_status": "written for the site (owner approved)"
+    "description": "Every pillar has a letter on top. Type the right letter to jump to that pillar and keep moving, but miss and you fall.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/little-jumper.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "rainbow-popcorn",
@@ -339,15 +370,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Casual",
+    "category": "Typing / Casual",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/rainbow-popcorn",
     "source": "itch",
     "tags": [
+      "Typing",
       "Casual"
     ],
-    "description": "Pop colourful kernels and collect as much rainbow popcorn as you can in this bright, cheerful casual game.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A touch-typing game with a colour-coded keyboard and finger guide. Type each word letter by letter and every correct key pops a burst of rainbow popcorn.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/rainbow-popcorn.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "fruit-fall",
@@ -356,15 +390,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Casual",
+    "category": "Typing / Casual",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/fruit-fall",
     "source": "itch",
     "tags": [
+      "Typing",
       "Casual"
     ],
-    "description": "Fruit is falling from the sky. Move to catch it before it hits the ground in this easy-to-learn casual game.",
-    "description_status": "written for the site (owner approved)"
+    "description": "Fruit falls from the sky, each piece marked with a letter. Type it to catch the fruit in the farmer's basket. Choose a difficulty and a lesson: home row, top row, bottom row, all rows or numbers.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/fruit-fall.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "spinnyfunny",
@@ -373,15 +410,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Casual",
+    "category": "Typing / Casual",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/spinnyfunny",
     "source": "itch",
     "tags": [
+      "Typing",
       "Casual"
     ],
-    "description": "A playful casual game built around spinning. Time your taps as things spin, rack up points and see how long you can keep going.",
-    "description_status": "written for the site (owner approved)"
+    "description": "A minimalist typing game. Type the letter in the centre to fire it onto a spinning ring, and time each shot so it lands in the right place.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/spinnyfunny.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "skibidi-panda",
@@ -390,15 +430,18 @@
     "platforms": [
       "WebGL"
     ],
-    "category": "Casual",
+    "category": "Typing / Action",
     "engine": "Unity",
     "itch_url": "https://nifty-games.itch.io/skibidi-panda",
     "source": "itch",
     "tags": [
-      "Casual"
+      "Typing",
+      "Action"
     ],
-    "description": "A light-hearted casual game starring a goofy panda. Quick to pick up and made for short, silly play sessions.",
-    "description_status": "written for the site (owner approved)"
+    "description": "The panda runs into goblins and skeletons, each carrying a key. Type the key to knock them out of the way. Six levels to clear.",
+    "description_status": "written from gameplay (owner approved)",
+    "image": "/images/games/skibidi-panda.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "sample-game-ig",
@@ -414,9 +457,11 @@
     "tags": [
       "Sample"
     ],
-    "description": "A small sample project made in Unity, used to test browser builds and publishing on itch.io.",
-    "description_status": "written for the site (owner approved)",
-    "note": "Likely a test build. Neutral treatment."
+    "description": "A small sample project made in Unity, with animal pieces in a round arena. Used to test browser builds on itch.io.",
+    "description_status": "written from gameplay (owner approved)",
+    "note": "Likely a test build. Neutral treatment.",
+    "image": "/images/games/sample-game-ig.webp",
+    "image_orientation": "landscape"
   },
   {
     "slug": "hangman-mobile",
