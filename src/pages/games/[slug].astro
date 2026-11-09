@@ -56,9 +56,7 @@ if (game.coauthor) facts.push(['Made with', game.coauthor]);
               View on itch.io <Icon name="external" /><span class="visually-hidden"> (opens in a new tab)</span>
             </a>
           </div>
-        ) : (
-          <p class="muted game__nolink">Store link coming soon.</p>
-        )}
+        ) : null}
 
         <dl class="facts">
           {facts.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
@@ -108,7 +106,6 @@ if (game.coauthor) facts.push(['Made with', game.coauthor]);
     background: rgb(245 184 75 / 0.08); border: 1px solid rgb(245 184 75 / 0.3); color: var(--text); font-size: 0.95rem;
   }
   .game__soon :global(svg) { width: 1.2rem; height: 1.2rem; color: var(--highlight); flex: none; margin-top: 0.2rem; }
-  .game__nolink { font-size: 0.95rem; }
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
   .facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
   .facts dd { margin: 0.15rem 0 0; font-weight: 500; }

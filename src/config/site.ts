@@ -22,10 +22,8 @@ export const site = {
   contact: {
     // TODO(owner): your public email, e.g. 'hello@niftygamesstudios.in'
     email: 'YOUR_EMAIL@example.com',
-    // TODO(owner): your Fiverr profile or gig URL
-    fiverr: 'https://www.fiverr.com/YOUR_FIVERR_USERNAME',
-    // TODO(owner): your Instagram profile URL
-    instagram: 'https://www.instagram.com/YOUR_INSTAGRAM_HANDLE',
+    fiverr: 'https://www.fiverr.com/niftygames17/',
+    instagram: 'https://www.instagram.com/niftygamesstudios',
     // Real, public profile (from the itch.io account).
     itch: 'https://nifty-games.itch.io',
   },
