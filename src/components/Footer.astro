@@ -1,0 +1,52 @@
+---
+import { site, nav, isPlaceholder } from '../config/site';
+import Wordmark from './Wordmark.astro';
+const year = new Date().getFullYear();
+const c = site.contact;
+const socials = [
+  { label: 'itch.io', href: c.itch },
+  { label: 'Fiverr', href: c.fiverr },
+  { label: 'Instagram', href: c.instagram },
+].filter((s) => !isPlaceholder(s.href));
+const gaOn = !isPlaceholder(site.analytics.ga4Id);
+---
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <Wordmark size="sm" />
+      <p class="muted site-footer__blurb">Unity games and freelance game development: prototypes, full builds, bug fixing and polish.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="site-footer__heading">Pages</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="site-footer__heading">Find me</h2>
+      <ul>
+        {socials.map((s) => <li><a href={s.href} rel="noopener me" target="_blank">{s.label}<span class="visually-hidden"> (opens in a new tab)</span></a></li>)}
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} {site.name}. All rights reserved.</p>
+    {gaOn && <button type="button" class="linklike" data-consent-reset>Cookie settings</button>}
+  </div>
+</footer>
+<style>
+  .site-footer { border-top: 1px solid var(--border); background: #070c18; padding-top: 3rem; margin-top: auto; }
+  .site-footer__grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 44rem) { .site-footer__grid { grid-template-columns: 2fr 1fr 1fr; } }
+  .site-footer__blurb { margin-top: 1rem; max-width: 22rem; font-size: 0.95rem; }
+  .site-footer__heading { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-family: var(--font-display); margin-bottom: 0.9rem; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+  .site-footer ul a { color: var(--text); text-decoration: none; display: inline-block; padding-block: 0.15rem; }
+  .site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+  .site-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--border); margin-top: 2.5rem; padding-block: 1.25rem; font-size: 0.875rem; color: var(--muted); }
+  .site-footer__bottom p { margin: 0; }
+  .linklike { background: none; border: 0; padding: 0; color: var(--muted); font: inherit; text-decoration: underline; cursor: pointer; }
+  .linklike:hover { color: var(--text); }
+</style>

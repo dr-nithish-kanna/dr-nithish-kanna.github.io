@@ -1,0 +1,19 @@
+---
+import { site } from '../config/site';
+interface Props { size?: 'sm' | 'md' }
+const { size = 'md' } = Astro.props;
+---
+<span class={`wordmark wordmark--${size}`}>
+  <img class="wordmark__logo" src={site.logo} alt="" width="40" height="40" decoding="async" />
+  <span class="wordmark__text"><span class="wordmark__nifty">Nifty</span> Games <span class="wordmark__studios">Studios</span></span>
+</span>
+<style>
+  .wordmark { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+  .wordmark__logo { width: 2.25rem; height: 2.25rem; border-radius: 50%; box-shadow: 0 0 0 2px rgb(34 211 238 / 0.25), 0 0 18px rgb(34 211 238 / 0.25); }
+  .wordmark__text { font-size: 1.15rem; white-space: nowrap; }
+  .wordmark__nifty { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .wordmark__studios { color: var(--muted); font-weight: 500; }
+  .wordmark--sm .wordmark__logo { width: 1.9rem; height: 1.9rem; }
+  .wordmark--sm .wordmark__text { font-size: 1.05rem; }
+  @media (max-width: 22rem) { .wordmark__studios { display: none; } }
+</style>
