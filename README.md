@@ -35,7 +35,7 @@ One-time setup in the GitHub repo: **Settings → Pages → Build and deployment
 
 ## Add your real contact links, logo and analytics
 
-1. **Contact links:** open `src/config/site.ts` and replace the `YOUR_...` placeholders in `contact` with your real email, Fiverr URL and Instagram URL. Anything that still contains `YOUR_` is hidden or shown as "Link coming soon", so the site never shows a broken link.
+1. **Contact links:** open `src/config/site.ts` and Fiverr and Instagram are set. Replace the `YOUR_...` email placeholder with your real email when you have one. Anything that still contains `YOUR_` is hidden or shown as "Link coming soon", so the site never shows a broken link.
 2. **Logo:** replace `public/assets/logo.png` with your logo (square, at least 256×256). To use an SVG, add `public/assets/logo.svg` and change `logo` in `site.ts` to `'/assets/logo.svg'`. Also replace `public/favicon.png` (48×48) and `public/apple-touch-icon.png` (180×180), then run `node scripts/make-og.mjs` to rebuild the social share image.
 3. **Google Analytics (GA4):** set `analytics.ga4Id` in `site.ts` to your Measurement ID (`G-XXXXXXXXXX`). Leave it empty and no analytics code is shipped. When it's set, visitors see a short consent notice, and GA only loads after they click **Allow analytics**. A "Cookie settings" link in the footer lets them change their mind.
 
@@ -65,7 +65,7 @@ Add an object to `src/data/games.json`:
 - `description_status`: anything starting with `draft` shows a **Details coming soon** note. Use any other value (e.g. `"owner"`) once the description is final.
 - Optional: `"image": "/images/games/my-new-game.webp"` with `"image_orientation": "landscape"` or `"portrait"`. Without an image, a branded placeholder cover is generated automatically.
 - Optional: `"featured": true` puts it on the home page; `"jam"` and `"coauthor"` show on the game page.
-- No itch page yet? Set `"itch_url": null` and `"needs_link": true`. The game shows without an outbound button.
+- Not on itch? Set `"itch_url": null` and `"needs_link": true`. The game is listed (and counted) with no outbound button.
 
 To turn a PNG or JPG screenshot into an optimized WebP, use any image tool (for example squoosh.app). About 960 px wide is enough.
 
