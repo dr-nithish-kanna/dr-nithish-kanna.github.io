@@ -1,0 +1,66 @@
+---
+// Google Analytics 4, loaded ONLY when site.analytics.ga4Id is set
+// AND the visitor accepts the notice. Nothing is rendered otherwise.
+import { site, isPlaceholder } from '../config/site';
+const id = site.analytics.ga4Id;
+const enabled = !isPlaceholder(id) && /^G-[A-Z0-9]+$/.test(id);
+---
+{enabled && (
+  <div class="consent" data-ga-id={id} hidden role="region" aria-label="Cookie notice">
+    <p>
+      I use Google Analytics to see which pages are useful. It sets cookies only if you allow it.
+    </p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost" data-consent="denied">Decline</button>
+      <button type="button" class="btn btn--primary" data-consent="granted">Allow analytics</button>
+    </div>
+  </div>
+)}
+{enabled && (
+  <script>
+    const KEY = 'ng-analytics-consent';
+    const banner = document.querySelector<HTMLElement>('.consent');
+    const id = banner?.dataset.gaId;
+    const read = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
+    const write = (v: string | null) => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch {} };
+    let loaded = false;
+    const load = () => {
+      if (loaded || !id) return;
+      loaded = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+      document.head.appendChild(s);
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function () { w.dataLayer.push(arguments); };
+      w.gtag('js', new Date());
+      w.gtag('config', id, { anonymize_ip: true });
+    };
+    const choice = read();
+    if (choice === 'granted') load();
+    else if (choice !== 'denied' && banner) banner.hidden = false;
+    banner?.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-consent]');
+      if (!btn) return;
+      write(btn.dataset.consent!);
+      banner.hidden = true;
+      if (btn.dataset.consent === 'granted') load();
+    });
+    document.querySelector('[data-consent-reset]')?.addEventListener('click', () => {
+      write(null);
+      if (banner) { banner.hidden = false; banner.querySelector<HTMLButtonElement>('button')?.focus(); }
+    });
+  </script>
+)}
+<style>
+  .consent {
+    position: fixed; z-index: 60; left: 1rem; right: 1rem; bottom: 1rem;
+    max-width: 34rem; margin-inline: auto;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 1.1rem 1.25rem; box-shadow: var(--shadow);
+  }
+  .consent[hidden] { display: none; }
+  .consent p { margin: 0 0 0.9rem; font-size: 0.95rem; }
+  .consent__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; }
+</style>

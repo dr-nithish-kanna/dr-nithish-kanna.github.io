@@ -1,0 +1,95 @@
+---
+import { nav } from '../config/site';
+import Wordmark from './Wordmark.astro';
+import Icon from './Icon.astro';
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => path === href || path.startsWith(href);
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Nifty Games Studios home"><Wordmark /></a>
+    <nav aria-label="Main">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <Icon name="menu" class="nav-toggle__open" />
+        <Icon name="close" class="nav-toggle__close" />
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul id="main-nav" class="nav-list">
+        {nav.map((item) => (
+          <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+        <li class="nav-list__cta"><a class="btn btn--primary" href="/contact/">Hire me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const list = document.getElementById('main-nav');
+  if (toggle && list) {
+    const set = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      list.classList.toggle('is-open', open);
+    };
+    toggle.addEventListener('click', () => set(toggle.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { set(false); toggle.focus(); }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgb(10 16 32 / 0.82);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 4.25rem; gap: 1rem; }
+  .site-header__brand { text-decoration: none; border-radius: 999px; }
+  .nav-toggle {
+    display: inline-grid; place-items: center;
+    width: 2.75rem; height: 2.75rem;
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border); border-radius: 0.7rem; cursor: pointer;
+  }
+  .nav-toggle :global(svg) { width: 1.4rem; height: 1.4rem; }
+  .nav-toggle :global(.nav-toggle__close) { display: none; }
+  .nav-toggle[aria-expanded='true'] :global(.nav-toggle__open) { display: none; }
+  .nav-toggle[aria-expanded='true'] :global(.nav-toggle__close) { display: block; }
+  .nav-list {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 100%;
+    list-style: none; margin: 0; padding: 0.75rem var(--gutter) 1.25rem;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    flex-direction: column; gap: 0.25rem;
+  }
+  .nav-list.is-open { display: flex; }
+  .nav-list a:not(.btn) {
+    display: block; padding: 0.7rem 0.5rem;
+    color: var(--text); text-decoration: none; font-weight: 500;
+    border-radius: 0.5rem;
+  }
+  .nav-list a:not(.btn):hover { color: var(--primary); }
+  .nav-list a[aria-current='page'] { color: var(--primary); }
+  .nav-list__cta { margin-top: 0.5rem; }
+  .nav-list__cta .btn { width: 100%; }
+  /* Without JS, show the nav inline below the brand so it stays usable. */
+  :global(html:not(.js)) .nav-toggle { display: none; }
+  :global(html:not(.js)) .nav-list { display: flex; position: static; flex-direction: row; flex-wrap: wrap; padding: 0; border: 0; }
+
+  @media (min-width: 52rem) {
+    .nav-toggle { display: none; }
+    .nav-list, .nav-list.is-open {
+      display: flex; position: static; flex-direction: row; align-items: center;
+      padding: 0; background: none; border: 0; gap: 0.25rem;
+    }
+    .nav-list a:not(.btn) { padding: 0.5rem 0.75rem; font-size: 0.95rem; color: var(--muted); }
+    .nav-list a:not(.btn):hover, .nav-list a[aria-current='page'] { color: var(--text); }
+    .nav-list a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--primary); border-radius: 0; }
+    .nav-list__cta { margin: 0 0 0 0.75rem; }
+    .nav-list__cta .btn { width: auto; min-height: 2.5rem; padding: 0.5rem 1.1rem; }
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import { site, isPlaceholder } from '../config/site';
+import Icon from './Icon.astro';
+interface Props { title?: string; text?: string }
+const {
+  title = 'Have a game idea or a build that needs help?',
+  text = 'Tell me what you are making, where it is stuck, and when you need it. I will reply with questions and a plan.',
+} = Astro.props;
+const fiverr = site.contact.fiverr;
+---
+<section class="section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta">
+      <div>
+        <h2 id="cta-title">{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact/">Start a project <Icon name="arrow" /></a>
+        {!isPlaceholder(fiverr) && <a class="btn btn--ghost" href={fiverr} target="_blank" rel="noopener">Hire me on Fiverr <Icon name="external" /><span class="visually-hidden"> (opens in a new tab)</span></a>}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .cta {
+    position: relative; overflow: hidden;
+    display: grid; gap: 1.5rem; align-items: center;
+    padding: clamp(1.75rem, 5vw, 3rem);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(60% 120% at 100% 0%, rgb(6 231 254 / 0.22), transparent 60%),
+      radial-gradient(50% 100% at 0% 100%, rgb(61 188 254 / 0.16), transparent 60%),
+      var(--surface);
+    border: 1px solid var(--border);
+  }
+  .cta h2 { margin-bottom: 0.5rem; }
+  .cta p { color: var(--muted); margin: 0; max-width: 38rem; }
+  @media (min-width: 52rem) { .cta { grid-template-columns: 1fr auto; } }
+</style>
