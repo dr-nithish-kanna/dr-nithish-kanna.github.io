@@ -1,0 +1,115 @@
+---
+import Base from '../../layouts/Base.astro';
+import GameCover from '../../components/GameCover.astro';
+import GameCard from '../../components/GameCard.astro';
+import SectionCTA from '../../components/SectionCTA.astro';
+import Icon from '../../components/Icon.astro';
+import { games, needsDetails, hasItchLink, relatedGames, slugify, type Game } from '../../lib/games';
+
+export function getStaticPaths() {
+  return games.map((game) => ({ params: { slug: game.slug }, props: { game } }));
+}
+interface Props { game: Game }
+const { game } = Astro.props;
+const related = relatedGames(game);
+const draft = needsDetails(game);
+const facts: [string, string][] = [
+  ['Status', game.status],
+  ['Category', game.category],
+  ['Platforms', game.platforms.join(', ')],
+  ['Engine', game.engine],
+];
+if (game.jam) facts.push(['Game jam', game.jam]);
+if (game.coauthor) facts.push(['Made with', game.coauthor]);
+---
+<Base
+  title={game.title}
+  description={`${game.title}: ${game.description} A ${game.category.toLowerCase()} game made in ${game.engine} by Nifty Games Studios.`}
+  image={game.image}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/games/">Games</a></li>
+        <li><span aria-current="page">{game.title}</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <article class="section game">
+    <div class="container game__grid">
+      <div class="game__media">
+        <GameCover game={game} eager />
+      </div>
+      <div class="game__info">
+        <span class={`badge badge--${slugify(game.status)}`}>{game.status}</span>
+        <h1>{game.title}</h1>
+        <p class="game__desc">{game.description}</p>
+        {draft && (
+          <p class="game__soon"><Icon name="pen" /> Details coming soon. A fuller write-up for this game is on the way.</p>
+        )}
+
+        {hasItchLink(game) ? (
+          <div class="btn-row">
+            <a class="btn btn--primary" href={game.itch_url} target="_blank" rel="noopener">
+              View on itch.io <Icon name="external" /><span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </div>
+        ) : (
+          <p class="muted game__nolink">Store link coming soon.</p>
+        )}
+
+        <dl class="facts">
+          {facts.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+        </dl>
+        {game.tags.length > 0 && (
+          <>
+            <h2 class="visually-hidden">Tags</h2>
+            <ul class="chip-list">{game.tags.map((t) => <li class="chip">{t}</li>)}</ul>
+          </>
+        )}
+      </div>
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="section section--alt" aria-labelledby="related-title">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <h2 id="related-title">Related games</h2>
+          <a class="btn btn--ghost" href="/games/">All games <Icon name="arrow" /></a>
+        </div>
+        <div class="grid grid--games">
+          {related.map((g) => <GameCard game={g} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <SectionCTA title="Want something like this for your project?" />
+</Base>
+
+<style>
+  .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 1.5rem 0 0; margin: 0; font-size: 0.875rem; color: var(--muted); }
+  .breadcrumb li + li::before { content: '/'; margin-right: 0.4rem; color: var(--border); }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--primary); }
+  .breadcrumb [aria-current] { color: var(--text); }
+  .game { padding-top: 2rem; }
+  .game__grid { display: grid; gap: 2rem; align-items: start; }
+  @media (min-width: 56rem) { .game__grid { grid-template-columns: 1.15fr 1fr; gap: 3rem; } }
+  .game__media { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); }
+  .game__info h1 { margin-top: 0.9rem; }
+  .game__desc { font-size: 1.125rem; color: #cfd9e8; }
+  .game__soon {
+    display: flex; gap: 0.6rem; align-items: flex-start;
+    padding: 0.85rem 1rem; border-radius: var(--radius);
+    background: rgb(245 184 75 / 0.08); border: 1px solid rgb(245 184 75 / 0.3); color: var(--text); font-size: 0.95rem;
+  }
+  .game__soon :global(svg) { width: 1.2rem; height: 1.2rem; color: var(--highlight); flex: none; margin-top: 0.2rem; }
+  .game__nolink { font-size: 0.95rem; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  .facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .facts dd { margin: 0.15rem 0 0; font-weight: 500; }
+</style>
