@@ -35,7 +35,7 @@ One-time setup in the GitHub repo: **Settings → Pages → Build and deployment
 
 ## Add your real contact links, logo and analytics
 
-1. **Contact links:** open `src/config/site.ts` and Email, Fiverr and Instagram are set. Change them there if they ever move. Anything that still contains `YOUR_` is hidden or shown as "Link coming soon", so the site never shows a broken link.
+1. **Contact links:** email, Fiverr and Instagram are set in `src/config/site.ts`. Change them there if they ever move. Anything that still contains `YOUR_` is hidden or shown as "Link coming soon", so the site never shows a broken link.
 2. **Logo:** replace `public/assets/logo.png` with your logo (square, at least 256×256). To use an SVG, add `public/assets/logo.svg` and change `logo` in `site.ts` to `'/assets/logo.svg'`. Also replace `public/favicon.png` (48×48) and `public/apple-touch-icon.png` (180×180), then run `node scripts/make-og.mjs` to rebuild the social share image.
 3. **Google Analytics (GA4):** `analytics.ga4Id` in `site.ts` holds the Measurement ID (currently set). Set it to `''` to remove analytics completely. When it's set, visitors see a short consent notice, and GA only loads after they click **Allow analytics**. A "Cookie settings" link in the footer lets them change their mind.
 
