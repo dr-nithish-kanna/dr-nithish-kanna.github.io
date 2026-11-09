@@ -1,0 +1,45 @@
+---
+import type { Game } from '../lib/games';
+import { categoriesOf, needsDetails, slugify } from '../lib/games';
+import GameCover from './GameCover.astro';
+interface Props { game: Game; headingLevel?: 'h2' | 'h3'; eager?: boolean }
+const { game, headingLevel: H = 'h3', eager = false } = Astro.props;
+const statusClass = `badge--${slugify(game.status)}`;
+---
+<article
+  class="game-card"
+  data-categories={categoriesOf(game).map(slugify).join(' ')}
+  data-status={slugify(game.status)}
+>
+  <div class="game-card__media">
+    <GameCover game={game} eager={eager} showTitle={false} />
+    <span class={`badge ${statusClass} game-card__status`}>{game.status}</span>
+  </div>
+  <div class="game-card__body">
+    <H class="game-card__title"><a href={`/games/${game.slug}/`}>{game.title}</a></H>
+    <p class="game-card__meta">{game.category} · {game.platforms.join(', ')}</p>
+    <p class="game-card__desc">{game.description}</p>
+    {needsDetails(game) && <p class="game-card__soon">Details coming soon</p>}
+  </div>
+</article>
+<style>
+  .game-card {
+    position: relative; display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .game-card:hover, .game-card:focus-within { transform: translateY(-3px); border-color: rgb(34 211 238 / 0.55); box-shadow: var(--shadow); }
+  .game-card[hidden] { display: none; }
+  .game-card__media { position: relative; }
+  .game-card__status { position: absolute; top: 0.75rem; right: 0.75rem; }
+  .game-card__body { padding: 1rem 1.15rem 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .game-card__title { font-size: 1.15rem; margin: 0; }
+  .game-card__title a { color: var(--text); text-decoration: none; }
+  /* Whole card is clickable via the title link. */
+  .game-card__title a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .game-card__title a:focus-visible { outline: none; }
+  .game-card:has(.game-card__title a:focus-visible) { outline: 3px solid var(--primary); outline-offset: 3px; }
+  .game-card__meta { font-size: 0.8rem; color: var(--muted); margin: 0; }
+  .game-card__desc { font-size: 0.925rem; color: #cfd9e8; margin: 0.25rem 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .game-card__soon { margin: auto 0 0; padding-top: 0.6rem; font-size: 0.78rem; font-weight: 600; color: var(--highlight); }
+</style>

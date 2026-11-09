@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionCTA from '../components/SectionCTA.astro';
+import Icon from '../components/Icon.astro';
+import { site, isPlaceholder } from '../config/site';
+import { services, process } from '../data/content';
+const fiverr = site.contact.fiverr;
+---
+<Base title="Services" description="Freelance Unity services: game development, prototyping, bug fixing and optimization, UI animation and polish. Contact for a quote.">
+  <section class="section page-head">
+    <div class="container">
+      <span class="eyebrow">Services</span>
+      <h1>Freelance Unity development</h1>
+      <p class="lead">
+        I work with studios, agencies and solo developers, directly or through Fiverr. Every project is
+        different, so tell me about yours and I'll come back with a plan and a quote.
+      </p>
+    </div>
+  </section>
+
+  <section class="section services" aria-label="Services">
+    <div class="container grid grid--2">
+      {services.map((s) => (
+        <article class="card service" id={s.id}>
+          <span class="icon-tile"><Icon name={s.icon} /></span>
+          <h2>{s.title}</h2>
+          <p class="muted">{s.summary}</p>
+          <ul class="check-list">{s.points.map((p) => <li>{p}</li>)}</ul>
+          <div class="btn-row service__actions">
+            <a class="btn btn--primary" href={`/contact/?service=${s.id}`}>Discuss this <Icon name="arrow" /></a>
+            {!isPlaceholder(fiverr) && <a class="btn btn--ghost" href={fiverr} target="_blank" rel="noopener">Order on Fiverr <Icon name="external" /><span class="visually-hidden"> (opens in a new tab)</span></a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Process</span>
+        <h2 id="process-title">How a project runs</h2>
+        <p>Simple, visible steps, so you know where your game is at every point.</p>
+      </div>
+      <ol class="steps">
+        {process.map((p, i) => (
+          <li class="card"><span class="steps__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p>{p.text}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <SectionCTA title="Not sure which service fits?" text="Describe the problem or the idea in a few lines. I'll tell you how I would approach it." />
+</Base>
+<style>
+  .page-head { padding-bottom: 1rem; }
+  .services { padding-top: 1.5rem; }
+  .service { display: flex; flex-direction: column; scroll-margin-top: 6rem; }
+  .service h2 { font-size: 1.45rem; }
+  .service .check-list { margin: 0.5rem 0 1.5rem; }
+  .service__actions { margin-top: auto; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr)); }
+  .steps li { padding: 1.25rem; }
+  .steps__n { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+  .steps h3 { margin-bottom: 0.4rem; }
+  .steps p { margin: 0; color: var(--muted); font-size: 0.925rem; }
+</style>

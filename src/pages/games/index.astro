@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import GameCard from '../../components/GameCard.astro';
+import SectionCTA from '../../components/SectionCTA.astro';
+import { games, allCategories, allStatuses, slugify, stats } from '../../lib/games';
+---
+<Base
+  title="Games"
+  description={`All ${stats.total} games I've made in Unity: typing games, racers, puzzle-platformers, casual and mobile titles.`}
+>
+  <section class="section page-head">
+    <div class="container">
+      <span class="eyebrow">Portfolio</span>
+      <h1>Games</h1>
+      <p class="lead">
+        {stats.total} games made in Unity. {stats.onItch} of them are on itch.io, where you can play them.
+        Filter by category or status, or open a game for details.
+      </p>
+    </div>
+  </section>
+
+  <section class="section games-section" aria-label="Game list">
+    <div class="container">
+      <form class="filters" aria-label="Filter games" data-filters>
+        <fieldset>
+          <legend>Category</legend>
+          <div class="filters__options">
+            <label class="filter"><input type="radio" name="category" value="all" checked /><span>All <small>{stats.total}</small></span></label>
+            {allCategories.map((c) => (
+              <label class="filter"><input type="radio" name="category" value={slugify(c.name)} /><span>{c.name} <small>{c.count}</small></span></label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Status</legend>
+          <div class="filters__options">
+            <label class="filter"><input type="radio" name="status" value="all" checked /><span>All</span></label>
+            {allStatuses.map((s) => (
+              <label class="filter"><input type="radio" name="status" value={slugify(s.name)} /><span>{s.name} <small>{s.count}</small></span></label>
+            ))}
+          </div>
+        </fieldset>
+        <p class="filters__count" role="status" aria-live="polite" data-count>Showing all {stats.total} games</p>
+      </form>
+
+      <div class="grid grid--games" data-grid>
+        {games.map((g, i) => <GameCard game={g} headingLevel="h2" eager={i < 3} />)}
+      </div>
+      <div class="empty card" hidden data-empty>
+        <p>No games match these filters.</p>
+        <button type="button" class="btn btn--ghost" data-reset>Clear filters</button>
+      </div>
+    </div>
+  </section>
+
+  <SectionCTA title="Want a game like these?" />
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-grid] .game-card')];
+  const count = document.querySelector<HTMLElement>('[data-count]');
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const total = cards.length;
+
+  function apply(updateUrl = true) {
+    if (!form) return;
+    const data = new FormData(form);
+    const cat = String(data.get('category') ?? 'all');
+    const status = String(data.get('status') ?? 'all');
+    let shown = 0;
+    for (const card of cards) {
+      const ok =
+        (cat === 'all' || (card.dataset.categories ?? '').split(' ').includes(cat)) &&
+        (status === 'all' || card.dataset.status === status);
+      card.hidden = !ok;
+      if (ok) shown++;
+    }
+    if (count) count.textContent = shown === total ? `Showing all ${total} games` : `Showing ${shown} of ${total} games`;
+    if (empty) empty.hidden = shown > 0;
+    if (updateUrl) {
+      const url = new URL(location.href);
+      cat === 'all' ? url.searchParams.delete('category') : url.searchParams.set('category', cat);
+      status === 'all' ? url.searchParams.delete('status') : url.searchParams.set('status', status);
+      history.replaceState(null, '', url);
+    }
+  }
+
+  if (form) {
+    // Restore filters from the URL (?category=typing&status=released)
+    const params = new URLSearchParams(location.search);
+    for (const name of ['category', 'status']) {
+      const v = params.get(name);
+      const input = v && form.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(v)}"]`);
+      if (input) input.checked = true;
+    }
+    form.addEventListener('change', () => apply());
+    form.addEventListener('submit', (e) => e.preventDefault());
+    document.querySelector('[data-reset]')?.addEventListener('click', () => {
+      form.reset();
+      apply();
+      form.querySelector<HTMLInputElement>('input')?.focus();
+    });
+    apply(false);
+  }
+</script>
+
+<style>
+  .page-head { padding-bottom: 1rem; }
+  .games-section { padding-top: 1.5rem; }
+  .filters { display: none; gap: 1.25rem; margin-bottom: 2rem; }
+  :global(html.js) .filters { display: grid; }
+  .filters fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .filters legend { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; padding: 0; }
+  .filters__options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .filter { position: relative; }
+  .filter input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .filter span {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    min-height: 2.5rem; padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface); color: var(--text);
+    font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .filter small { font-size: 0.75rem; color: var(--muted); }
+  .filter:hover span { border-color: var(--primary); }
+  .filter input:checked + span { background: var(--gradient); color: var(--on-primary); border-color: transparent; }
+  .filter input:checked + span small { color: var(--on-primary); }
+  .filter input:focus-visible + span { outline: 3px solid var(--primary); outline-offset: 3px; }
+  .filters__count { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .empty { text-align: center; }
+</style>

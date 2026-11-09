@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('devlog', (p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title={post.data.title} description={post.data.description} type="article">
+  <article class="section">
+    <div class="container">
+      <a href="/devlog/" class="back">&larr; All posts</a>
+      <header class="post-head">
+        <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+        <h1>{post.data.title}</h1>
+        <p class="lead">{post.data.description}</p>
+      </header>
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+</Base>
+<style>
+  .back { display: inline-block; margin-bottom: 1.5rem; }
+  .post-head { max-width: 46rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .post-head time { color: var(--muted); font-size: 0.9rem; }
+  .post-head h1 { margin-top: 0.4rem; }
+</style>
