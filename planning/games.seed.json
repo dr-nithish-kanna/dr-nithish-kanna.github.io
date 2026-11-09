@@ -1,0 +1,488 @@
+[
+  {
+    "slug": "the-key-is-in-the-dice",
+    "title": "The Key is in the Dice",
+    "status": "Released",
+    "platforms": [
+      "WebGL",
+      "Windows"
+    ],
+    "category": "Puzzle / Platformer",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/the-key-is-in-the-dice",
+    "source": "itch",
+    "tags": [
+      "2D",
+      "Dice",
+      "Puzzle-Platformer"
+    ],
+    "description": "A puzzle-platformer made for GMTK Game Jam 2022. Find the key hidden among dice, but every step you take rolls the dice down, so look before you step. Reach the door to move on to the next level.",
+    "description_status": "from itch page, lightly edited",
+    "jam": "GMTK Game Jam 2022",
+    "coauthor": "Blxck Cxsper",
+    "old_site_image": "key-is-in-the-dice.png"
+  },
+  {
+    "slug": "sumo-smash",
+    "title": "Sumo Smash",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Multiplayer / Action",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/sumo-smash",
+    "source": "itch",
+    "tags": [
+      "Multiplayer",
+      "3D",
+      "Physics"
+    ],
+    "description": "An online multiplayer 3D game with customizable pucks and physics-based gameplay.",
+    "description_status": "from old site",
+    "old_site_image": "sumo-smash.png",
+    "old_site_tech": [
+      "Unity",
+      "C#",
+      "Blender"
+    ]
+  },
+  {
+    "slug": "qwerty-challenge",
+    "title": "Qwerty Challenge",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/qwerty-challenge",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Particles"
+    ],
+    "description": "A keyboard game where you drag and drop keys, with particle effects and a responsive UI.",
+    "description_status": "from old site",
+    "old_site_image": "qwerty-challenge.png"
+  },
+  {
+    "slug": "fishook",
+    "title": "Fishook",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/fishook",
+    "source": "itch",
+    "tags": [
+      "Casual",
+      "Fishing",
+      "Touch"
+    ],
+    "description": "A casual fishing game: catch as many fish as you can before time runs out.",
+    "description_status": "from old site",
+    "old_site_image": "fishook.png"
+  },
+  {
+    "slug": "stickboy",
+    "title": "Stickboy",
+    "status": "Released",
+    "platforms": [
+      "Android"
+    ],
+    "category": "Adventure / Action",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/stickboy",
+    "source": "itch",
+    "tags": [
+      "Fantasy",
+      "Magic",
+      "Stickman"
+    ],
+    "description": "Explore the area, defeat enemies, collect power-ups and have fun in this fantasy stickman adventure for Android.",
+    "description_status": "from itch tagline, lightly edited",
+    "screenshots_on_itch": 8
+  },
+  {
+    "slug": "nitro-type-pro",
+    "title": "Nitro Type Pro",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing / Racing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/nitro-type-pro",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Racing"
+    ],
+    "description": "A typing game with a racing feel.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "typehook",
+    "title": "TypeHook",
+    "status": "Prototype",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/typehook",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Prototype"
+    ],
+    "description": "A typing prototype in the Hook family of games.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "type-for-tusker",
+    "title": "Type For Tusker",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/type-for-tusker",
+    "source": "itch",
+    "tags": [
+      "Typing"
+    ],
+    "description": "A typing game starring a tusker.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "snaketyping",
+    "title": "SnakeTyping",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/snaketyping",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Arcade"
+    ],
+    "description": "The classic snake game, driven by typing.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "balloon-blast-typing",
+    "title": "Balloon Blast Typing",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/balloon-blast-typing",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Arcade"
+    ],
+    "description": "Type to pop the balloons.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "ducktypehunt",
+    "title": "DuckTypeHunt",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Typing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/ducktypehunt",
+    "source": "itch",
+    "tags": [
+      "Typing",
+      "Arcade"
+    ],
+    "description": "A duck-hunt style game where you type to take your shots.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "boat-rush",
+    "title": "Boat Rush",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Racing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/boat-rush",
+    "source": "itch",
+    "tags": [
+      "Racing"
+    ],
+    "description": "A fast boat racing game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "quad-race",
+    "title": "Quad Race",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Racing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/quad-race",
+    "source": "itch",
+    "tags": [
+      "Racing"
+    ],
+    "description": "A quad bike racing game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "moto-rush",
+    "title": "Moto Rush",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Racing",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/moto-rush",
+    "source": "itch",
+    "tags": [
+      "Racing"
+    ],
+    "description": "A fast motorbike racing game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "tank-defence",
+    "title": "Tank Defence",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Strategy / Action",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/tank-defence",
+    "source": "itch",
+    "tags": [
+      "Defence",
+      "Tanks"
+    ],
+    "description": "A tank defence game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "knight-fight",
+    "title": "Knight Fight",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Action",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/knight-fight",
+    "source": "itch",
+    "tags": [
+      "Action",
+      "Fantasy"
+    ],
+    "description": "A knight combat game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "little-jumper",
+    "title": "Little Jumper",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Platformer",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/little-jumper",
+    "source": "itch",
+    "tags": [
+      "Platformer",
+      "2D"
+    ],
+    "description": "A small jumping platformer.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "rainbow-popcorn",
+    "title": "Rainbow Popcorn",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/rainbow-popcorn",
+    "source": "itch",
+    "tags": [
+      "Casual"
+    ],
+    "description": "A colourful casual popcorn game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "fruit-fall",
+    "title": "Fruit Fall",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/fruit-fall",
+    "source": "itch",
+    "tags": [
+      "Casual"
+    ],
+    "description": "A casual game about falling fruit.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "spinnyfunny",
+    "title": "SpinnyFunny",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/spinnyfunny",
+    "source": "itch",
+    "tags": [
+      "Casual"
+    ],
+    "description": "A playful spinning casual game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "skibidi-panda",
+    "title": "Skibidi Panda",
+    "status": "In development",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/skibidi-panda",
+    "source": "itch",
+    "tags": [
+      "Casual"
+    ],
+    "description": "A fun, light-hearted panda game.",
+    "description_status": "draft - owner to review"
+  },
+  {
+    "slug": "sample-game-ig",
+    "title": "Sample Game IG",
+    "status": "Released",
+    "platforms": [
+      "WebGL"
+    ],
+    "category": "Sample",
+    "engine": "Unity",
+    "itch_url": "https://nifty-games.itch.io/sample-game-ig",
+    "source": "itch",
+    "tags": [
+      "Sample"
+    ],
+    "description": "A sample project.",
+    "description_status": "draft - owner to review",
+    "note": "Likely a test build. Neutral treatment."
+  },
+  {
+    "slug": "hangman-mobile",
+    "title": "Hangman Mobile",
+    "status": "Released",
+    "platforms": [
+      "Android"
+    ],
+    "category": "Word / Casual",
+    "engine": "Unity",
+    "itch_url": null,
+    "source": "old-site",
+    "tags": [
+      "Word",
+      "Mobile"
+    ],
+    "description": "A classic word-guessing game with hints, built for quick, fun play on mobile.",
+    "description_status": "from old site",
+    "old_site_image": "hangman.png",
+    "needs_link": true
+  },
+  {
+    "slug": "brick-breaker-classic",
+    "title": "Brick Breaker Classic",
+    "status": "Released",
+    "platforms": [
+      "Android"
+    ],
+    "category": "Arcade",
+    "engine": "Unity",
+    "itch_url": null,
+    "source": "old-site",
+    "tags": [
+      "Arcade",
+      "Mobile"
+    ],
+    "description": "A modern take on classic brick breaker with smooth controls and arcade-style play.",
+    "description_status": "from old site",
+    "old_site_image": "brick-breaker-classic.png",
+    "needs_link": true
+  },
+  {
+    "slug": "3d-stack",
+    "title": "3D Stack",
+    "status": "Released",
+    "platforms": [
+      "Android"
+    ],
+    "category": "Casual / Arcade",
+    "engine": "Unity",
+    "itch_url": null,
+    "source": "old-site",
+    "tags": [
+      "3D",
+      "Timing",
+      "Mobile"
+    ],
+    "description": "A timing-based stacking game: build the tallest tower you can.",
+    "description_status": "from old site",
+    "old_site_image": "stack.png",
+    "needs_link": true
+  },
+  {
+    "slug": "ball-fall",
+    "title": "Ball Fall",
+    "status": "Released",
+    "platforms": [
+      "Android"
+    ],
+    "category": "Casual",
+    "engine": "Unity",
+    "itch_url": null,
+    "source": "old-site",
+    "tags": [
+      "Tilt",
+      "Mobile"
+    ],
+    "description": "A colour-matching game controlled by tilting your device: catch the falling balls with a hoop.",
+    "description_status": "from old site",
+    "old_site_image": "ball-fall.png",
+    "needs_link": true
+  }
+]

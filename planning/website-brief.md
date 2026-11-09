@@ -152,3 +152,11 @@ Rules: all text must meet WCAG AA (4.5:1). Never put bright cyan text on white. 
 5. Confirm Astro vs plain HTML/CSS/JS.
 6. Whether the 4 old-site-only games should be listed.
 7. Short real descriptions per game (optional; otherwise the build session drafts them for review).
+
+## 9. Final choices (2026-11-09) - these override anything above
+- **Colour: Option A "Midnight + Cyan"** (dark).
+- **Tool: Astro**, static output, deployed to GitHub Pages via GitHub Actions. Keep `CNAME`.
+- **Games: show all 26**: the 22 itch games plus the 4 old-site games (Hangman Mobile, Brick Breaker Classic, 3D Stack, Ball Fall). The 4 have no itch link yet, so no outbound button for them (`needs_link: true` in the data) until the owner supplies one.
+- **Descriptions:** the owner delegated this. A first draft is in `planning/games.seed.json` (`description_status` says where each came from). Only facts known from itch pages, the old site, or the game's title are used. Games with a one-line placeholder description need a real description from the owner and should be marked "Details coming soon" in the UI, not padded with invented features.
+- **Data model:** `planning/games.seed.json` is the single source of truth for the games grid and game pages. Move it to `src/data/games.json` in the build.
+- Reminder: no playable embeds, no prices, no medical references.
