@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('devlog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Devlog" description="Notes from Nifty Games Studios: how my games are made, Unity tips, and project updates.">
+  <section class="section page-head">
+    <div class="container">
+      <span class="eyebrow">Devlog</span>
+      <h1>Devlog</h1>
+      <p class="lead">Behind-the-scenes notes on making games in Unity: what I'm building, what broke, and what I learned.</p>
+    </div>
+  </section>
+  <section class="section devlog" aria-label="Posts">
+    <div class="container">
+      {posts.length === 0 ? (
+        <div class="card soon">
+          <span class="icon-tile"><Icon name="pen" /></span>
+          <h2>First post coming soon</h2>
+          <p class="muted">I'm writing the first entry now. In the meantime, have a look at <a href="/games/">my games</a>.</p>
+        </div>
+      ) : (
+        <ul class="posts">
+          {posts.map((p) => (
+            <li class="card post">
+              <time datetime={p.data.pubDate.toISOString()}>{fmt(p.data.pubDate)}</time>
+              <h2><a href={`/devlog/${p.id}/`}>{p.data.title}</a></h2>
+              <p class="muted">{p.data.description}</p>
+              {p.data.tags.length > 0 && <ul class="chip-list">{p.data.tags.map((t) => <li class="chip">{t}</li>)}</ul>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</Base>
+<style>
+  .page-head { padding-bottom: 1rem; }
+  .devlog { padding-top: 1.5rem; }
+  .soon { max-width: 36rem; }
+  .soon h2 { font-size: 1.5rem; }
+  .soon p { margin: 0; }
+  .posts { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; max-width: 46rem; }
+  .post { position: relative; }
+  .post time { font-size: 0.85rem; color: var(--muted); }
+  .post h2 { font-size: 1.4rem; margin: 0.25rem 0 0.5rem; }
+  .post h2 a { color: var(--text); text-decoration: none; }
+  .post h2 a::after { content: ''; position: absolute; inset: 0; }
+  .post:hover { border-color: rgb(34 211 238 / 0.55); }
+</style>

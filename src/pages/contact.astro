@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { site, isPlaceholder, mailto } from '../config/site';
+import { services } from '../data/content';
+
+const c = site.contact;
+const emailReady = !isPlaceholder(c.email);
+const channels = [
+  { name: 'Email', icon: 'mail', text: 'Best for direct projects and detailed briefs.', href: emailReady ? mailto(c.email) : '', cta: emailReady ? c.email : 'Send an email', external: false },
+  { name: 'Fiverr', icon: 'fiverr', text: 'Prefer a marketplace? Order or message me on Fiverr.', href: c.fiverr, cta: 'Open my Fiverr profile', external: true },
+  { name: 'Instagram', icon: 'instagram', text: 'Work in progress, clips and studio updates.', href: c.instagram, cta: 'Follow on Instagram', external: true },
+  { name: 'itch.io', icon: 'itch', text: 'Play my published games in your browser.', href: c.itch, cta: 'Visit my itch.io page', external: true },
+] as const;
+---
+<Base title="Contact" description="Contact Nifty Games Studios about a Unity game project: email, Fiverr or Instagram. Contact for a quote.">
+  <section class="section page-head">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's talk about your game</h1>
+      <p class="lead">Whether it's a new game, a prototype, or a build that needs fixing, send me a message and I'll get back to you with questions and next steps.</p>
+    </div>
+  </section>
+
+  <section class="section contact" aria-label="Contact options">
+    <div class="container contact__grid">
+      <div class="channels">
+        {channels.map((ch) => {
+          const ready = !isPlaceholder(ch.href);
+          return (
+            <div class="card channel">
+              <span class="icon-tile"><Icon name={ch.icon} /></span>
+              <div class="channel__body">
+                <h2>{ch.name}</h2>
+                <p class="muted">{ch.text}</p>
+                {ready ? (
+                  <a class="channel__link" href={ch.href} target={ch.external ? '_blank' : undefined} rel={ch.external ? 'noopener' : undefined}>
+                    {ch.cta} <Icon name={ch.external ? 'external' : 'arrow'} />
+                    {ch.external && <span class="visually-hidden"> (opens in a new tab)</span>}
+                  </a>
+                ) : (
+                  <span class="badge badge--plain channel__soon">Link coming soon</span>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div class="card brief">
+        <h2>Write your message</h2>
+        <p class="muted">This opens your email app with your message ready to send. It helps to include:</p>
+        <ul class="check-list brief__tips">
+          <li>What you're making and for which platform</li>
+          <li>What you need from me (new build, prototype, fixes, polish)</li>
+          <li>Your timeline and any links or references</li>
+        </ul>
+        <form class="brief__form" method="post" enctype="text/plain" action={emailReady ? `mailto:${c.email}` : undefined} data-mailto={emailReady ? c.email : ''}>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="f-service">What do you need?</label>
+            <select id="f-service" name="service">
+              {services.map((s) => <option value={s.id}>{s.title}</option>)}
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Project details</label>
+            <textarea id="f-msg" name="message" rows="6" required></textarea>
+          </div>
+          {emailReady ? (
+            <button class="btn btn--primary" type="submit">Open in my email app <Icon name="mail" /></button>
+          ) : (
+            <>
+              <button class="btn btn--primary" type="submit" disabled aria-describedby="f-note">Open in my email app <Icon name="mail" /></button>
+              <p id="f-note" class="muted brief__note">Email is being set up. Until then, please use one of the other channels.</p>
+            </>
+          )}
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.brief__form');
+  const select = document.querySelector<HTMLSelectElement>('#f-service');
+  const pre = new URLSearchParams(location.search).get('service');
+  if (select && pre && [...select.options].some((o) => o.value === pre)) select.value = pre;
+  form?.addEventListener('submit', (e) => {
+    const to = form.dataset.mailto;
+    if (!to) { e.preventDefault(); return; }
+    e.preventDefault();
+    const d = new FormData(form);
+    const service = select?.selectedOptions[0]?.textContent ?? '';
+    const subject = `Project enquiry: ${service}`;
+    const body = `Hi,\n\n${d.get('message')}\n\nService: ${service}\nName: ${d.get('name')}`;
+    location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+
+<style>
+  .page-head { padding-bottom: 1rem; }
+  .contact { padding-top: 1.5rem; }
+  .contact__grid { display: grid; gap: 1.5rem; align-items: start; }
+  @media (min-width: 56rem) { .contact__grid { grid-template-columns: 1fr 1.1fr; } }
+  .channels { display: grid; gap: 1rem; }
+  .channel { display: flex; gap: 1rem; padding: 1.25rem; }
+  .channel .icon-tile { margin: 0; flex: none; }
+  .channel h2 { font-size: 1.15rem; margin-bottom: 0.25rem; }
+  .channel p { margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .channel__link { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; word-break: break-all; }
+  .channel__link :global(svg) { width: 1rem; height: 1rem; flex: none; }
+  .channel__soon { color: var(--muted); }
+  .brief h2 { font-size: 1.4rem; }
+  .brief__tips { margin-bottom: 1.5rem; }
+  .brief__form { display: grid; gap: 1rem; }
+  .field { display: grid; gap: 0.35rem; }
+  .field label { font-weight: 500; font-size: 0.95rem; }
+  .field input, .field select, .field textarea {
+    width: 100%; font: inherit; color: var(--text);
+    background: var(--bg); border: 1px solid #3a4b6b; border-radius: 0.6rem;
+    padding: 0.7rem 0.85rem; min-height: 2.9rem;
+  }
+  .field textarea { resize: vertical; }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--primary); outline-offset: 1px; border-color: var(--primary); }
+  .brief__form .btn { justify-self: start; }
+  .brief__form .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .brief__note { font-size: 0.875rem; margin: 0; }
+</style>

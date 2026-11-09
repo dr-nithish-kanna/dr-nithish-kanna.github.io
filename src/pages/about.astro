@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionCTA from '../components/SectionCTA.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config/site';
+import { skills } from '../data/content';
+import { stats } from '../lib/games';
+---
+<Base title="About" description="The developer behind Nifty Games Studios: 5+ years of Unity experience making typing, racing, puzzle and mobile games.">
+  <section class="section page-head">
+    <div class="container about__grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h1>Hi, I'm the developer behind Nifty Games Studios.</h1>
+        <p class="lead">Nifty Games Studios is my own game studio. I design, code and ship games in Unity, and I take on freelance work for other teams.</p>
+      </div>
+      <img class="about__logo" src={site.logo} alt="Nifty Games Studios logo" width="256" height="256" />
+    </div>
+  </section>
+
+  <section class="section about-story" aria-labelledby="story-title">
+    <div class="container about__cols">
+      <div class="prose">
+        <h2 id="story-title">My story</h2>
+        <p>
+          I've been building games in Unity for more than five years. In that time I've made {stats.total} games:
+          typing games, arcade racers, a puzzle-platformer, an Android adventure and a handful of casual mobile titles.
+          {stats.onItch} of them are published on my <a href={site.contact.itch} target="_blank" rel="noopener">itch.io page<span class="visually-hidden"> (opens in a new tab)</span></a>.
+        </p>
+        <p>
+          Typing games have become a speciality. Turning a keyboard into a controller is a fun design problem: the game
+          has to read every keystroke instantly and still feel like a game, not a test. Alongside my own games
+          I work with clients such as Typing Bird and Internet Game.
+        </p>
+        <p>
+          Game jams keep me sharp. <a href="/games/the-key-is-in-the-dice/">The Key is in the Dice</a> was made for
+          GMTK Game Jam 2022 together with Blxck Cxsper.
+        </p>
+        <p>
+          Most of my games run in the browser through WebGL, so I care about load times, frame rate and builds that
+          behave the same on every machine. The same goes for Android, where performance on everyday phones matters.
+        </p>
+        <h2>How I work</h2>
+        <ul class="check-list">
+          <li>Clear communication: you always know what I'm working on and what's next.</li>
+          <li>Clean, readable C# that your team can pick up and extend.</li>
+          <li>Playable builds early and often, so feedback happens while change is cheap.</li>
+          <li>Polish matters: animation, effects and feedback are part of the job, not extras.</li>
+        </ul>
+      </div>
+      <aside class="card about__facts" aria-labelledby="facts-title">
+        <h2 id="facts-title" class="h3">At a glance</h2>
+        <dl>
+          <div><dt>Experience</dt><dd>5+ years with Unity</dd></div>
+          <div><dt>Games made</dt><dd>{stats.total}</dd></div>
+          <div><dt>Platforms</dt><dd>{stats.platforms.join(', ')}</dd></div>
+          <div><dt>Speciality</dt><dd>Typing games, casual &amp; WebGL</dd></div>
+          <div><dt>Works with</dt><dd>Studios, agencies and indie developers</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 id="skills-title">Skills</h2>
+      <ul class="chip-list about__skills">
+        {skills.map((s) => <li><Icon name={s.icon} />{s.name}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <SectionCTA />
+</Base>
+<style>
+  .page-head { padding-bottom: 1rem; }
+  .about__grid { display: grid; gap: 2rem; align-items: center; }
+  @media (min-width: 52rem) { .about__grid { grid-template-columns: 1fr auto; } }
+  .about__logo { width: clamp(7rem, 20vw, 11rem); height: auto; border-radius: 50%; box-shadow: 0 0 0 6px var(--surface), 0 0 60px rgb(6 231 254 / 0.35); }
+  .about-story { padding-top: 1.5rem; }
+  .about__cols { display: grid; gap: 2.5rem; align-items: start; }
+  @media (min-width: 56rem) { .about__cols { grid-template-columns: 1fr 20rem; } .about__facts { position: sticky; top: 6rem; } }
+  .about__facts .h3 { font-size: 1.15rem; }
+  .about__facts dl { margin: 0; display: grid; gap: 1rem; }
+  .about__facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .about__facts dd { margin: 0.1rem 0 0; font-weight: 500; }
+  .about__skills { gap: 0.6rem; }
+  .about__skills li { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.95rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); font-weight: 500; }
+  .about__skills :global(svg) { width: 1.1rem; height: 1.1rem; color: var(--primary); }
+</style>

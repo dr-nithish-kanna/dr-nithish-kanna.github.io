@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import GameCard from '../components/GameCard.astro';
+import SectionCTA from '../components/SectionCTA.astro';
+import Icon from '../components/Icon.astro';
+import { site, isPlaceholder } from '../config/site';
+import { featuredGames, games, stats } from '../lib/games';
+import { services, skills, testimonials } from '../data/content';
+
+const heroShots = ['the-key-is-in-the-dice', 'sumo-smash', 'qwerty-challenge']
+  .map((s) => games.find((g) => g.slug === s)!)
+  .filter((g) => g?.image);
+const fiverr = site.contact.fiverr;
+---
+<Base>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow">Nifty Games Studios</span>
+        <h1 id="hero-title">Unity games, <span class="text-gradient">built to play well</span> and look polished.</h1>
+        <p class="lead">
+          I'm a Unity developer with 5+ years of experience. I make typing games, arcade racers, puzzle-platformers
+          and mobile titles, and I help studios and indie teams build, fix and polish theirs.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/contact/">Start a project <Icon name="arrow" /></a>
+          <a class="btn btn--ghost" href="/games/">See my games</a>
+          {!isPlaceholder(fiverr) && <a class="btn btn--ghost" href={fiverr} target="_blank" rel="noopener">Fiverr <Icon name="external" /><span class="visually-hidden"> (opens in a new tab)</span></a>}
+        </div>
+        <dl class="hero__stats">
+          <div><dt>Years with Unity</dt><dd>5+</dd></div>
+          <div><dt>Games made</dt><dd>{stats.total}</dd></div>
+          <div><dt>Platforms</dt><dd>{stats.platforms.join(' · ')}</dd></div>
+        </dl>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__glow"></div>
+        {heroShots.map((g, i) => (
+          <img class={`hero__shot hero__shot--${i}`} src={g.image} alt="" width="960" height="600" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        ))}
+        <img class="hero__logo" src={site.logo} alt="" width="96" height="96" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <span class="eyebrow">Portfolio</span>
+          <h2 id="featured-title">Featured games</h2>
+          <p>A few of the {stats.total} games I've made in Unity, from jam entries to released titles.</p>
+        </div>
+        <a class="btn btn--ghost" href="/games/">All {stats.total} games <Icon name="arrow" /></a>
+      </div>
+      <div class="grid grid--games">
+        {featuredGames.map((g) => <GameCard game={g} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2 id="services-title">How I can help your game</h2>
+        <p>Freelance Unity work for studios, agencies and solo developers, through Fiverr or directly.</p>
+      </div>
+      <div class="grid grid--4">
+        {services.map((s) => (
+          <a class="card service-tile" href={`/services/#${s.id}`}>
+            <span class="icon-tile"><Icon name={s.icon} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="testimonials-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Client feedback</span>
+        <h2 id="testimonials-title">What clients say</h2>
+      </div>
+      <div class="grid grid--2">
+        {testimonials.map((t) => (
+          <figure class="card quote">
+            <Icon name="quote" class="quote__mark" />
+            <blockquote><p>{t.quote}</p></blockquote>
+            <figcaption><strong>{t.client}</strong><span>{t.role}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Toolkit</span>
+        <h2 id="skills-title">Skills</h2>
+      </div>
+      <ul class="skills">
+        {skills.map((s) => (
+          <li><span class="icon-tile"><Icon name={s.icon} /></span>{s.name}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <SectionCTA title="Ready to start your project?" />
+</Base>
+
+<style>
+  .hero { position: relative; overflow: hidden; padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem); }
+  .hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(40rem 24rem at 85% 10%, rgb(6 231 254 / 0.14), transparent 70%),
+      radial-gradient(30rem 20rem at 0% 100%, rgb(61 188 254 / 0.1), transparent 70%);
+  }
+  .hero__grid { position: relative; display: grid; gap: 3rem; align-items: center; }
+  @media (min-width: 60rem) { .hero__grid { grid-template-columns: 1.1fr 0.9fr; } }
+  .hero__copy .lead { margin-bottom: 1.75rem; }
+  .hero__stats { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .hero__stats div { display: flex; flex-direction: column-reverse; }
+  .hero__stats dt { font-size: 0.8rem; color: var(--muted); }
+  .hero__stats dd { margin: 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; }
+  .hero__art { position: relative; aspect-ratio: 5 / 4; max-width: 34rem; width: 100%; margin-inline: auto; }
+  .hero__glow { position: absolute; inset: 10%; background: var(--gradient); filter: blur(70px); opacity: 0.25; border-radius: 50%; }
+  .hero__shot { position: absolute; width: 72%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+  .hero__shot--0 { top: 0; left: 0; z-index: 1; transform: rotate(-4deg); }
+  .hero__shot--1 { top: 28%; right: 0; z-index: 2; transform: rotate(3deg); }
+  .hero__shot--2 { bottom: 0; left: 10%; z-index: 3; transform: rotate(-1deg); }
+  .hero__logo { position: absolute; z-index: 4; right: 4%; bottom: 4%; width: 22%; height: auto; border-radius: 50%; box-shadow: 0 0 0 4px var(--bg), 0 0 40px rgb(6 231 254 / 0.45); }
+
+  .service-tile { text-decoration: none; color: inherit; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .service-tile:hover { color: inherit; border-color: rgb(34 211 238 / 0.55); transform: translateY(-3px); }
+  .service-tile h3 { color: var(--text); }
+  .service-tile p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+  .quote { position: relative; margin: 0; display: flex; flex-direction: column; }
+  .quote :global(.quote__mark) { width: 2rem; height: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
+  .quote blockquote { margin: 0 0 1.25rem; font-size: 1.075rem; color: #cfd9e8; flex: 1; }
+  .quote figcaption { display: flex; flex-direction: column; }
+  .quote figcaption span { color: var(--muted); font-size: 0.9rem; }
+
+  .skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
+  .skills li { display: flex; align-items: center; gap: 0.85rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1rem; font-weight: 500; }
+  .skills .icon-tile { margin: 0; width: 2.4rem; height: 2.4rem; flex: none; }
+</style>
