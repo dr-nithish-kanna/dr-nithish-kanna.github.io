@@ -1,0 +1,35 @@
+---
+// Shown after the Tally waitlist form (set as the form's redirect). Not indexed.
+import Base from '../../layouts/Base.astro';
+import '../../styles/pulse.css';
+import Glyph from '../../components/pulse/Glyph.astro';
+import ChannelButton from '../../components/pulse/ChannelButton.astro';
+---
+<Base title="You are on the Pulse waitlist" description="Thanks for joining the Pulse beta waitlist." image="/og/pulse.png" noindex>
+  <div class="pulse">
+    <section class="p-hero p-page" aria-labelledby="thanks-title">
+      <div class="container p-hero__inner">
+        <img class="p-hero__icon" src="/images/pulse/icon-256.webp" alt="Pulse app icon" width="256" height="256" decoding="async" />
+        <h1 id="thanks-title">You are on the list. Thank you!</h1>
+        <p class="p-hero__sub">We will email you when your invite to the Pulse beta is ready.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="next-title">
+      <div class="container p-narrow">
+        <h2 id="next-title">What happens next</h2>
+        <ul class="p-list">
+          <li><Glyph name="check" /><span>We send invites to the Google Play beta in waves, to the Google account email you gave us.</span></li>
+          <li><Glyph name="check" /><span>When your turn comes, you get a link to join the beta and install Pulse from Google Play on your Android phone.</span></li>
+          <li><Glyph name="check" /><span>Use it for your revision, and tell us what to fix with the report button on every card.</span></li>
+        </ul>
+        <div class="p-cta">
+          <h2>Get beta news first</h2>
+          <p>Follow the WhatsApp Channel for invite waves and new chapters. You can leave it at any time.</p>
+          <div class="pbtn-row"><ChannelButton /></div>
+        </div>
+        <p style="margin-top:2rem"><a href="/pulse/">Back to Pulse</a> &middot; <a href="/">Nifty Games Studios home</a></p>
+      </div>
+    </section>
+  </div>
+</Base>

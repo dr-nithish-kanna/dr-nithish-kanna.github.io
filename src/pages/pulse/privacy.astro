@@ -1,0 +1,143 @@
+---
+// Pulse privacy policy (app, waitlist and this website).
+import Base from '../../layouts/Base.astro';
+import '../../styles/pulse.css';
+import { site, mailto } from '../../config/site';
+const email = site.contact.email;
+const mail = mailto(email, 'Pulse privacy');
+---
+<Base title="Pulse privacy policy" description="How the Pulse app, the Pulse beta waitlist and this website use your information." image="/og/pulse.png">
+  <div class="pulse">
+    <article class="container p-page">
+      <div class="prose">
+        <span class="eyebrow">Pulse</span>
+        <h1>Pulse privacy policy</h1>
+        <p class="muted">Last updated: 22 November 2026</p>
+
+        <p>
+          Pulse ("the app") is a revision app for medical graduates and interns, made by Nifty Games Studios ("we").
+          This page explains what information the app, the Pulse beta waitlist and this website use, and why.
+          You can reach us at <a href={mail}>{email}</a>.
+        </p>
+
+        <h2>1. The beta waitlist</h2>
+        <p>When you join the waitlist we collect:</p>
+        <ul>
+          <li>your name and email address;</li>
+          <li>your Google account email, used only to add you to Google Play testing so you can install the beta;</li>
+          <li>your stage (intern or PG aspirant) and exam year;</li>
+          <li>which creator link you came from, if any.</li>
+        </ul>
+        <p>
+          The form is run by Tally, a form service, which stores the answers for us. We use them only to invite you to the
+          Pulse beta and to send you beta updates. To invite you, we add your Google account email to the beta testers list
+          in Google Play.
+        </p>
+        <p>
+          We keep this information until the beta ends, or until you ask us to delete it, whichever comes first.
+          To ask, email <a href={mail}>{email}</a> from the address you signed up with.
+        </p>
+        <p>If you follow our WhatsApp Channel for updates, you can leave it at any time.</p>
+
+        <h2>2. This website</h2>
+        <p>
+          This website uses Google Analytics to see which pages are useful, and only after you allow it in the cookie notice.
+          If you decline, no analytics cookies are set. You can change your choice at any time with "Cookie settings" at the
+          bottom of every page. If you came from a creator's link, that link's short code is kept in your browser tab only
+          while you visit and is passed to the waitlist form.
+        </p>
+
+        <h2>3. What stays on your phone</h2>
+        <p>
+          Your learning progress (cards you have read, your answers, XP, streak, achievements, journeys, favourites, settings and
+          reminder times) is stored on your phone. We do not receive it unless you turn on backup (section 7).
+        </p>
+
+        <h2>4. Usage and crash data (only if you allow it)</h2>
+        <p>
+          On first launch the app asks whether you allow anonymous usage data. If you say yes, we use Google Firebase Analytics
+          and Firebase Crashlytics to learn how the app is used and to fix crashes. If you say no, nothing is sent. You can
+          change your mind at any time in Settings.
+        </p>
+        <table class="p-table">
+          <thead><tr><th scope="col">What</th><th scope="col">Why</th></tr></thead>
+          <tbody>
+            <tr><td>Events such as "session finished", counts, and how long answers take</td><td>See which features work and where learners get stuck</td></tr>
+            <tr><td>Crash reports: device model, Android version, what the app was doing</td><td>Find and fix bugs</td></tr>
+            <tr><td>A random installation ID created by Firebase</td><td>Count how many people use the app without knowing who they are</td></tr>
+          </tbody>
+        </table>
+        <p>
+          We never send the text of cards or questions, or your answers, in these events. We do not use the advertising ID,
+          we show no ads and we do not sell your data. Google processes this data for us under Firebase's terms, and we ask
+          Firebase to keep it for the shortest period offered.
+        </p>
+
+        <h2>5. Downloading content</h2>
+        <p>
+          To download study content (cards and questions), the app signs in to Firebase Authentication anonymously. This
+          creates a random ID that is not linked to your name, email or phone number, and it is needed whatever you chose in
+          section 4. The app then reads the content from Google Firebase (Firestore). Your learning progress is not sent.
+        </p>
+        <p>
+          Some subjects include photographs, such as clinical photos with their credit lines. They are downloaded from a
+          private image library hosted on GitHub. Like any website, GitHub can see your phone's internet address when a photo
+          is requested. No account details or progress are sent.
+        </p>
+
+        <h2>6. Notifications</h2>
+        <p>If you allow them, the app schedules reminders on your phone. They are created on the device and do not use a server.</p>
+
+        <h2>7. Sign-in, backup and friends</h2>
+        <p>
+          You can sign in with Google. We then store, in Google Firebase (Firestore), your Google account email and name, a
+          user ID, and (if you press "Back up now") a copy of your learning progress. Signing in and backing up are optional;
+          the app works without them.
+        </p>
+        <p>
+          Friends and the weekly leaderboard are a separate choice that you turn on yourself on the Friends screen. Only then
+          do we publish a profile: the display name and avatar you chose, your level, total XP, XP this week, streak and up to
+          three achievement badges you pin, plus a friend code. This profile is visible only to you and to the people you
+          accept as friends, and a friend request shows the sender's display name and avatar to the person they ask. Friends
+          never see your email, your cards or your answers. You can turn friends off at any time, and the profile, code and
+          friendships are deleted.
+        </p>
+
+        <h2>8. How long we keep data and how to delete it</h2>
+        <ul>
+          <li><strong>Phone data:</strong> clear the app's storage, uninstall the app, or use "Reset all progress" in Settings.</li>
+          <li><strong>Analytics and crash data:</strong> kept by Firebase for a limited period and then deleted automatically.</li>
+          <li><strong>Account, profile and backup:</strong> delete them in the app ("Delete account", when available) or email <a href={mail}>{email}</a> from the address you signed in with. We delete them within 30 days.</li>
+          <li><strong>Waitlist answers:</strong> kept until the beta ends, or deleted sooner when you ask by email.</li>
+        </ul>
+
+        <h2>9. Who it is shared with</h2>
+        <p>
+          Only the services that process data for us: Google (Firebase, Google Play testing and, if you allow it, Google
+          Analytics on this website) and Tally for the waitlist form. We do not sell data and we do not share it with
+          advertisers or data brokers. Data sent from the app is encrypted in transit.
+        </p>
+
+        <h2>10. Age</h2>
+        <p>Pulse is meant for adults (18 and over), such as medical graduates and doctors. It is not directed at children.</p>
+
+        <h2>11. Medical disclaimer</h2>
+        <p>
+          Pulse is for exam revision only. It is not medical advice and must not be used to diagnose or treat patients.
+          Always check your standard textbooks.
+        </p>
+
+        <h2>12. Your choices and contact</h2>
+        <p>
+          We respect your choices. You can ask us to show, correct or delete the data we hold about you at any time.
+          Write to <a href={mail}>{email}</a>.
+        </p>
+
+        <h2>13. Changes</h2>
+        <p>If we change this policy we will update the date above and, for important changes, tell you in the app.</p>
+
+        <p style="margin-top:2rem"><a href="/pulse/">Back to Pulse</a></p>
+      </div>
+    </article>
+  </div>
+</Base>

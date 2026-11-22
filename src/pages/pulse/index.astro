@@ -1,0 +1,192 @@
+---
+// Pulse landing page. Links and copy live in src/data/pulse.ts.
+import Base from '../../layouts/Base.astro';
+import '../../styles/pulse.css';
+import { site } from '../../config/site';
+import { pulse } from '../../data/pulse';
+import Glyph from '../../components/pulse/Glyph.astro';
+import WaitlistButton from '../../components/pulse/WaitlistButton.astro';
+import ChannelButton from '../../components/pulse/ChannelButton.astro';
+import PhoneFrame from '../../components/pulse/PhoneFrame.astro';
+
+const tiles = ['', 'p-tile--teal', '', 'p-tile--orange'];
+const hasShots = pulse.screenshots.length > 0;
+---
+<Base
+  title="Pulse: remember what you read"
+  description="Pulse is a NEET PG revision app from Nifty Games Studios. One fact per card, spaced repetition and 3 minute sessions. Join the Android beta waitlist."
+  image="/og/pulse.png"
+>
+  <link slot="head" rel="apple-touch-icon" sizes="180x180" href="/images/pulse/apple-touch-icon.png" />
+  <link slot="head" rel="preload" as="image" href="/images/pulse/icon-256.webp" type="image/webp" />
+
+  <div class="pulse">
+    <section class="p-hero" aria-labelledby="pulse-title">
+      <div class="container p-hero__inner">
+        <img class="p-hero__icon" src="/images/pulse/icon-256.webp" alt="Pulse app icon" width="256" height="256" fetchpriority="high" decoding="async" />
+        <span class="p-lockup">
+          <img src={site.logo} alt="" width="24" height="24" decoding="async" />
+          A Nifty Games Studios app
+          <span class="pchip pchip--beta">Beta</span>
+        </span>
+        <h1 id="pulse-title">Remember what you read. <span class="accent">One fact at a time.</span></h1>
+        <p class="p-hero__sub">A NEET PG revision app that brings each fact back just before you forget it.</p>
+        <div class="p-hero__cta">
+          <WaitlistButton placement="hero" />
+          <p class="p-hero__note">Early access on Android. Free to join.</p>
+        </div>
+      </div>
+      <div class="ecg" aria-hidden="true">
+        <svg viewBox="0 0 640 56" preserveAspectRatio="none" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path class="ecg__base" pathLength="1" d="M0 34h250l14-14 12 26 18-44 18 52 12-20h316" />
+          <path class="ecg__trace" pathLength="1" d="M0 34h250l14-14 12 26 18-44 18 52 12-20h316" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Pulse</span>
+          <h2 id="why-title">Built for revision, not for cramming</h2>
+          <p>Each card holds one fact you can recall on its own. Pulse decides when you see it again.</p>
+        </div>
+        <div class="p-proof">
+          {pulse.proofPoints.map((p, i) => (
+            <article class="card">
+              <span class={`p-tile ${tiles[i] ?? ''}`}><Glyph name={p.icon as any} /></span>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="action-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The app</span>
+          <h2 id="action-title">See it in action</h2>
+        </div>
+        {hasShots ? (
+          <div class="p-shots">
+            {pulse.screenshots.map((s) => <PhoneFrame {...s} />)}
+          </div>
+        ) : (
+          <figure class="p-feature">
+            <img src="/images/pulse/feature-graphic.webp" alt="Pulse banner: the heartbeat logo with the words Remember medicine, one card at a time." width="960" height="469" loading="lazy" decoding="async" />
+            <figcaption>App screenshots are coming soon.</figcaption>
+          </figure>
+        )}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="beta-title">
+      <div class="container p-beta">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="eyebrow">In the beta</span>
+          <h2 id="beta-title">Three chapters to start</h2>
+        </div>
+        <ul class="chip-row" aria-label="Chapters in the beta">
+          {pulse.betaChapters.map((c) => <li class="pchip pchip--teal">{c}</li>)}
+        </ul>
+        <p class="muted" style="margin:0">More subjects will follow. Tell us which one you want next.</p>
+        <p class="p-note"><strong>Early beta.</strong> Some cards are still being reviewed. Tell us when something looks wrong: there is a report button on every card.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2 id="how-title">How the beta works</h2>
+        </div>
+        <ol class="p-steps">
+          {pulse.steps.map((s) => (
+            <li class="card">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Questions</span>
+          <h2 id="faq-title">Good to know</h2>
+        </div>
+        <div class="p-faq">
+          {pulse.faq.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="join-title">
+      <div class="container">
+        <div class="p-cta">
+          <img src="/images/pulse/icon-256.webp" alt="" width="64" height="64" loading="lazy" decoding="async" style="width:4rem;height:4rem;border-radius:1rem" />
+          <h2 id="join-title">Be one of the first to try Pulse</h2>
+          <p>Join the waitlist for the Android beta, and follow the WhatsApp Channel for news about invites and new chapters.</p>
+          <div class="pbtn-row">
+            <WaitlistButton placement="bottom" />
+            <ChannelButton />
+          </div>
+          <span class="p-made"><img src={site.logo} alt="" width="24" height="24" loading="lazy" decoding="async" /> Made by Nifty Games Studios</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container p-disclaimer">
+      <p>Pulse is for exam revision, not medical advice.</p>
+      <p><a href="/pulse/privacy/">Pulse privacy policy</a></p>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Creator tracking without a backend: ?c=<code> is checked, kept for this tab only,
+    // and passed to the Tally form as the hidden field "c". Works without storage too.
+    (function () {
+      var RE = /^[a-z0-9_-]{1,30}$/i;
+      var KEY = 'pulse-creator';
+      var code = null;
+      try { code = new URLSearchParams(window.location.search).get('c'); } catch (e) {}
+      if (code && RE.test(code)) {
+        try { sessionStorage.setItem(KEY, code); } catch (e) {}
+      } else {
+        code = null;
+        try {
+          var saved = sessionStorage.getItem(KEY);
+          if (saved && RE.test(saved)) code = saved;
+        } catch (e) {}
+      }
+      if (code) {
+        var links = document.querySelectorAll('a[data-waitlist]');
+        for (var i = 0; i < links.length; i++) {
+          try {
+            var u = new URL(links[i].href);
+            u.searchParams.set('c', code);
+            links[i].href = u.href;
+          } catch (e) {}
+        }
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[data-waitlist]') : null;
+        if (!a || typeof window.gtag !== 'function') return;
+        window.gtag('event', 'waitlist_click', {
+          creator: code || 'none',
+          placement: a.getAttribute('data-placement') || '',
+          transport_type: 'beacon',
+        });
+      });
+    })();
+  </script>
+</Base>

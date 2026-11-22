@@ -1,0 +1,24 @@
+---
+// A simple phone outline around a real app screenshot. Only used when screenshots exist.
+interface Props { src: string; alt: string; caption?: string; width?: number; height?: number }
+const { src, alt, caption, width = 540, height = 1170 } = Astro.props;
+---
+<figure class="phone">
+  <div class="phone__frame">
+    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+<style>
+  .phone { margin: 0; display: grid; gap: 0.75rem; justify-items: center; }
+  .phone__frame {
+    width: min(100%, 15rem);
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background: #0d1428;
+    border: 1px solid #2c3656;
+    box-shadow: 0 20px 40px -20px rgb(142 124 255 / 0.45);
+  }
+  .phone__frame img { width: 100%; height: auto; border-radius: 1.55rem; }
+  figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; }
+</style>

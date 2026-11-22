@@ -1,0 +1,15 @@
+---
+// WhatsApp Channel button for beta updates. Placeholder URL shows a quiet "opens soon" state.
+import { isPlaceholder } from '../../config/site';
+import { pulse } from '../../data/pulse';
+import Glyph from './Glyph.astro';
+const url = pulse.whatsappChannelUrl;
+const live = !isPlaceholder(url);
+---
+{live ? (
+  <a class="pbtn pbtn--ghost" href={url} target="_blank" rel="noopener">
+    <Glyph name="bell" /> Get updates on WhatsApp<span class="visually-hidden"> (opens in a new tab)</span>
+  </a>
+) : (
+  <span class="pbtn pbtn--soon pbtn--soon-ghost" aria-disabled="true"><Glyph name="bell" /> WhatsApp updates open soon</span>
+)}

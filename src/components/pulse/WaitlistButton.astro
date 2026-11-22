@@ -1,0 +1,25 @@
+---
+// The "Join the waitlist" button. Links to the Tally form from src/data/pulse.ts.
+// While that URL is a placeholder it renders a non-link "Waitlist opens soon" state.
+// A small script on the page adds the creator code (?c=) to every [data-waitlist] link.
+import { isPlaceholder } from '../../config/site';
+import { pulse } from '../../data/pulse';
+import Glyph from './Glyph.astro';
+interface Props { placement: string }
+const { placement } = Astro.props;
+const url = pulse.tallyUrl;
+const live = !isPlaceholder(url);
+let href = '';
+if (live) {
+  const u = new URL(url);
+  u.searchParams.set('ref', 'pulse-site');
+  href = u.href;
+}
+---
+{live ? (
+  <a class="pbtn pbtn--primary" href={href} data-waitlist data-placement={placement}>
+    Join the waitlist <Glyph name="arrow" />
+  </a>
+) : (
+  <span class="pbtn pbtn--soon" aria-disabled="true">Waitlist opens soon</span>
+)}

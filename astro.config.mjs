@@ -8,5 +8,5 @@ export default defineConfig({
   trailingSlash: 'ignore',
   // Keep CSS readable by older browsers (Safari 14, older Chromebooks), same as the Astro 5 output.
   vite: { build: { cssTarget: ['chrome90', 'safari14', 'firefox90'] } },
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/pulse/thanks') })],
 });
