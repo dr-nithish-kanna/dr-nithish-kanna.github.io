@@ -9,7 +9,7 @@ export const pulse = {
   tallyUrl: 'YOUR_TALLY_FORM_URL',
 
   /** WhatsApp Channel invite link, e.g. 'https://whatsapp.com/channel/...'. */
-  whatsappChannelUrl: 'YOUR_WHATSAPP_CHANNEL_URL',
+  whatsappChannelUrl: 'https://whatsapp.com/channel/0029Vb9udz2J3jupI7fKM31m',
 
   /** Google Play link. Leave '' until Pulse is on the store. */
   playStoreUrl: '',
