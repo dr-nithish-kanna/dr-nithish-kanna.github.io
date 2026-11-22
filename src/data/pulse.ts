@@ -6,7 +6,7 @@
  */
 export const pulse = {
   /** Tally form share link, e.g. 'https://tally.so/r/abc123'. The page adds ?c=<creator>&ref=pulse-site. */
-  tallyUrl: 'YOUR_TALLY_FORM_URL',
+  tallyUrl: 'https://tally.so/r/yXJljd',
 
   /** WhatsApp Channel invite link, e.g. 'https://whatsapp.com/channel/...'. */
   whatsappChannelUrl: 'https://whatsapp.com/channel/0029Vb9udz2J3jupI7fKM31m',
