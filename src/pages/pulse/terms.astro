@@ -1,0 +1,96 @@
+---
+// Pulse terms of service (app beta, waitlist and this website).
+import Base from '../../layouts/Base.astro';
+import '../../styles/pulse.css';
+import { site, mailto } from '../../config/site';
+const email = site.contact.email;
+const mail = mailto(email, 'Pulse terms');
+---
+<Base title="Pulse terms of service" description="The terms for using the Pulse app beta, the Pulse waitlist and this website." image="/og/pulse.png">
+  <div class="pulse">
+    <article class="container p-page">
+      <div class="prose">
+        <span class="eyebrow">Pulse</span>
+        <h1>Pulse terms of service</h1>
+        <p class="muted">Last updated: 22 November 2026</p>
+
+        <p>
+          These terms apply when you use Pulse ("the app"), join the Pulse waitlist or use this website. Pulse is made by
+          Nifty Games Studios ("we"). By using the app, you agree to these terms. If you do not agree, please do not use it.
+          Questions: <a href={mail}>{email}</a>.
+        </p>
+
+        <h2>1. Who can use Pulse</h2>
+        <p>Pulse is for adults (18 and over), such as medical graduates, interns and doctors preparing for exams.</p>
+
+        <h2>2. Early beta</h2>
+        <p>
+          Pulse is in early beta. Features may change, break or be removed, and some content is still being reviewed.
+          We give the beta to you as it is, and we may pause or end it at any time. Your progress may be reset during the beta.
+        </p>
+
+        <h2>3. Exam revision only, not medical advice</h2>
+        <p>
+          Pulse is a revision tool. It is not medical advice, and it must not be used to diagnose or treat patients or to make
+          clinical decisions. Cards and questions can contain mistakes. Always check your standard textbooks and current
+          guidelines. If you find something wrong, use the report button on the card.
+        </p>
+
+        <h2>4. Your account and use</h2>
+        <ul>
+          <li>You can use the app without an account. If you sign in with Google, keep your sign-in details safe.</li>
+          <li>You are responsible for what you do with your account, including friends and leaderboard features.</li>
+          <li>Pick a name and picture that are not offensive or someone else's.</li>
+        </ul>
+
+        <h2>5. What you must not do</h2>
+        <ul>
+          <li>Copy, scrape, resell or share the cards, questions or pictures, in whole or in large parts.</li>
+          <li>Reverse engineer the app or interfere with how it works, or with other people's use of it.</li>
+          <li>Cheat on leaderboards, harass other users or use the app for anything unlawful.</li>
+        </ul>
+        <p>We may remove accounts or access that break these rules.</p>
+
+        <h2>6. Ownership</h2>
+        <p>
+          The app, its design, cards, questions and pictures belong to Nifty Games Studios or are used with permission, and
+          are protected by law. You get a personal, non-transferable right to use the app for your own revision. Some
+          pictures come from other creators under open licences, and the credit is shown with each picture.
+        </p>
+
+        <h2>7. Your feedback</h2>
+        <p>
+          If you send us feedback or a report, you allow us to use it to improve Pulse without paying you. Please do not send
+          anything private or confidential about patients.
+        </p>
+
+        <h2>8. Privacy</h2>
+        <p>
+          How we use your information is explained in the <a href="/pulse/privacy/">Pulse privacy policy</a>.
+        </p>
+
+        <h2>9. Paid features</h2>
+        <p>The beta is free. If we add paid features later, we will tell you clearly before you pay, and these terms will be updated.</p>
+
+        <h2>10. Our responsibility</h2>
+        <p>
+          To the extent the law allows, we are not responsible for losses that come from using the app, from mistakes in
+          content, from the app being unavailable, or from lost progress. Nothing in these terms limits any right you have
+          under law that cannot be limited.
+        </p>
+
+        <h2>11. Changes and ending</h2>
+        <p>
+          We may update these terms. We will change the date above and, for important changes, tell you in the app. If you keep
+          using Pulse after a change, you accept it. You can stop using the app at any time, and you can ask us to delete your
+          data by emailing <a href={mail}>{email}</a>.
+        </p>
+
+        <h2>12. Law</h2>
+        <p>These terms are governed by the laws of India.</p>
+
+        <p style="margin-top:2rem"><a href="/pulse/">Back to Pulse</a></p>
+      </div>
+    </article>
+  </div>
+</Base>
