@@ -12,7 +12,7 @@ const mail = mailto(email, 'Pulse privacy');
       <div class="prose">
         <span class="eyebrow">Pulse</span>
         <h1>Pulse privacy policy</h1>
-        <p class="muted">Last updated: 22 November 2026</p>
+        <p class="muted">Last updated: 27 November 2026</p>
 
         <p>
           Pulse ("the app") is a revision app for medical graduates and interns, made by Nifty Games Studios ("we").
@@ -47,93 +47,119 @@ const mail = mailto(email, 'Pulse privacy');
           while you visit and is passed to the waitlist form.
         </p>
 
-        <h2>3. What stays on your phone</h2>
+        <h2>3. Signing in with Google (required)</h2>
         <p>
-          Your learning progress (cards you have read, your answers, XP, streak, achievements, journeys, favourites, settings and
-          reminder times) is stored on your phone. We do not receive it unless you turn on backup (section 7).
+          Pulse asks you to sign in with your Google account when you first open it. We use Google Firebase Authentication for
+          this. It gives us your Google account email address, your name, the link to your Google profile photo and a user ID.
+          We use them to keep your progress safe in your account and to let you use it on another phone. We never see your
+          Google password.
         </p>
 
-        <h2>4. Usage and crash data (only if you allow it)</h2>
+        <h2>4. Your learning progress (synced automatically)</h2>
         <p>
-          On first launch the app asks whether you allow anonymous usage data. If you say yes, we use Google Firebase Analytics
-          and Firebase Crashlytics to learn how the app is used and to fix crashes. If you say no, nothing is sent. You can
+          Your learning progress is kept on your phone and copied automatically to your account in Google Firebase (Firestore),
+          so it is not lost if you change or reset your phone. This copy includes the cards you have learnt, your review history
+          and which answers were right or wrong, XP, streak, achievements, journeys, favourites and settings, and a friend code.
+          Only you can read it.
+        </p>
+
+        <h2>5. Friends and the weekly leaderboard (only if you turn them on)</h2>
+        <p>
+          Friends is off until you press "Turn on friends" on the Friends screen. Only then do we publish a profile: the display
+          name and emoji avatar you chose, your level, total XP, XP this week and per day, streak and up to three achievement
+          badges you pin, plus your friend code. This profile is visible only to you and to the people you accept as friends, and
+          a friend request shows the sender's display name and avatar to the person they ask. Friends never see your email, your
+          Google photo, your cards or your answers. You can turn friends off at any time and the profile, code and friendships are
+          deleted.
+        </p>
+
+        <h2>6. Shared journeys and reports</h2>
+        <p>
+          If you invite a friend to a journey, or accept an invite, Pulse stores the journey (its name and the list of topics),
+          who is in it, and, for each member, the display name, emoji avatar and the list of topics that member has finished. The
+          other members of that journey can see this. They never see your answers, cards or scores. Leaving a journey, being
+          removed, or the owner stopping it deletes your progress entry for it. When you delete your account in the app, it stops
+          the journeys you shared, leaves the ones you joined (removing your progress entries) and declines open invites.
+        </p>
+        <p>
+          When you press the flag on a card or question to report a mistake, Pulse sends the card or question identifier, the
+          reason you chose, the optional note you typed (up to 300 characters), your account ID, the app version and the content
+          version. It never sends the card text. Only we can read reports, and we use them to correct the content. The app cannot
+          delete a report after it was sent: a report is not removed when you delete your account. To have your reports deleted,
+          email <a href={mail}>{email}</a> and we remove them.
+        </p>
+
+        <h2>7. Usage and crash data (only if you allow it)</h2>
+        <p>
+          The app asks whether you allow usage data and crash reports. If you say yes, we use Google Firebase Analytics and
+          Firebase Crashlytics to learn how the app is used and to fix crashes. If you say no, none of this is sent. You can
           change your mind at any time in Settings.
         </p>
         <table class="p-table">
           <thead><tr><th scope="col">What</th><th scope="col">Why</th></tr></thead>
           <tbody>
             <tr><td>Events such as "session finished", counts, and how long answers take</td><td>See which features work and where learners get stuck</td></tr>
-            <tr><td>Crash reports: device model, Android version, what the app was doing</td><td>Find and fix bugs</td></tr>
-            <tr><td>A random installation ID created by Firebase</td><td>Count how many people use the app without knowing who they are</td></tr>
+            <tr><td>Crash reports: device model, Android version, app version, what the app was doing</td><td>Find and fix bugs</td></tr>
+            <tr><td>A random installation ID created by Firebase</td><td>Count how many people use the app</td></tr>
           </tbody>
         </table>
         <p>
           We never send the text of cards or questions, or your answers, in these events. We do not use the advertising ID,
-          we show no ads and we do not sell your data. Google processes this data for us under Firebase's terms, and we ask
-          Firebase to keep it for the shortest period offered.
+          we show no ads and we do not sell your data.
         </p>
 
-        <h2>5. Downloading content</h2>
+        <h2>8. Downloading content and photos</h2>
         <p>
-          To download study content (cards and questions), the app signs in to Firebase Authentication anonymously. This
-          creates a random ID that is not linked to your name, email or phone number, and it is needed whatever you chose in
-          section 4. The app then reads the content from Google Firebase (Firestore). Your learning progress is not sent.
-        </p>
-        <p>
-          Some subjects include photographs, such as clinical photos with their credit lines. They are downloaded from a
-          private image library hosted on GitHub. Like any website, GitHub can see your phone's internet address when a photo
-          is requested. No account details or progress are sent.
+          Study content (cards and questions) is downloaded from Google Firebase (Firestore) while you are signed in. Some
+          subjects include photographs, such as clinical photos with their credit lines. They are downloaded from a private image
+          library hosted on GitHub. Like any website, GitHub can see your phone's internet address when a photo is requested. No
+          account details or progress are sent to it.
         </p>
 
-        <h2>6. Notifications</h2>
+        <h2>9. Notifications</h2>
         <p>If you allow them, the app schedules reminders on your phone. They are created on the device and do not use a server.</p>
 
-        <h2>7. Sign-in, backup and friends</h2>
-        <p>
-          You can sign in with Google. We then store, in Google Firebase (Firestore), your Google account email and name, a
-          user ID, and (if you press "Back up now") a copy of your learning progress. Signing in and backing up are optional;
-          the app works without them.
-        </p>
-        <p>
-          Friends and the weekly leaderboard are a separate choice that you turn on yourself on the Friends screen. Only then
-          do we publish a profile: the display name and avatar you chose, your level, total XP, XP this week, streak and up to
-          three achievement badges you pin, plus a friend code. This profile is visible only to you and to the people you
-          accept as friends, and a friend request shows the sender's display name and avatar to the person they ask. Friends
-          never see your email, your cards or your answers. You can turn friends off at any time, and the profile, code and
-          friendships are deleted.
-        </p>
-
-        <h2>8. How long we keep data and how to delete it</h2>
+        <h2>10. How long we keep data</h2>
         <ul>
-          <li><strong>Phone data:</strong> clear the app's storage, uninstall the app, or use "Reset all progress" in Settings.</li>
-          <li><strong>Analytics and crash data:</strong> kept by Firebase for a limited period and then deleted automatically.</li>
-          <li><strong>Account, profile and backup:</strong> delete them in the app ("Delete account", when available) or email <a href={mail}>{email}</a> from the address you signed in with. We delete them within 30 days.</li>
-          <li><strong>Waitlist answers:</strong> kept until the beta ends, or deleted sooner when you ask by email.</li>
+          <li>Account, synced progress, friends profile, shared journeys and invites: as long as your account exists. They are deleted when you delete your account (section 11).</li>
+          <li>Reports about cards or questions (identifiers, reason, note, your user ID): kept until you ask us to delete them by email; deleting your account in the app does not remove them.</li>
+          <li>Analytics and crash data: kept by Firebase for a limited period and then deleted automatically.</li>
+          <li>Waitlist answers: kept until the beta ends, or deleted sooner when you ask by email.</li>
         </ul>
 
-        <h2>9. Who it is shared with</h2>
+        <h2 id="delete-account">11. Delete your account</h2>
+        <p>You can delete your Pulse account and its data at any time:</p>
+        <ul>
+          <li><strong>In the app:</strong> Settings &gt; Delete account. This deletes your synced progress, your friend code, your friends profile and friendships, your shared journeys, invites and journey progress (it stops sharing, leaves journeys and declines invites first), and your sign-in account, and clears Pulse's data on that phone. It cannot delete reports you sent about cards or questions: they hold identifiers, a reason, an optional note and your user ID, and we remove them if you ask by email.</li>
+          <li><strong>Without the app:</strong> email <a href={mail}>{email}</a> from the Google address you signed in with, with the subject "Delete my Pulse account". We delete the same data, including your reports, within 30 days and reply when it is done.</li>
+        </ul>
+        <p>Analytics and crash data are not linked to your name or email; they expire automatically.</p>
+
+        <h2>12. Who it is shared with</h2>
         <p>
-          Only the services that process data for us: Google (Firebase, Google Play testing and, if you allow it, Google
-          Analytics on this website) and Tally for the waitlist form. We do not sell data and we do not share it with
-          advertisers or data brokers. Data sent from the app is encrypted in transit.
+          Only the services that process data for us: Google (Firebase Authentication, Firestore, Analytics and Crashlytics, Google
+          Play testing and, if you allow it, Google Analytics on this website), Tally for the waitlist form, and the friends you
+          accept (section 5). We do not sell data and we do not share it with advertisers or data brokers. Data sent from the app
+          is encrypted in transit.
         </p>
 
-        <h2>10. Age</h2>
+        <h2>13. Age</h2>
         <p>Pulse is meant for adults (18 and over), such as medical graduates and doctors. It is not directed at children.</p>
 
-        <h2>11. Medical disclaimer</h2>
+        <h2>14. Medical disclaimer</h2>
         <p>
           Pulse is for exam revision only. It is not medical advice and must not be used to diagnose or treat patients.
           Always check your standard textbooks.
         </p>
 
-        <h2>12. Your choices and contact</h2>
+        <h2>15. Your rights and contact</h2>
         <p>
-          We respect your choices. You can ask us to show, correct or delete the data we hold about you at any time.
-          Write to <a href={mail}>{email}</a>.
+          You can ask us to show, correct or delete the data we hold about you at any time. Write to <a href={mail}>{email}</a>.
+          Grievance contact for India's Digital Personal Data Protection Act: Grievance Officer, Nifty Games Studios,
+          <a href={mail}>{email}</a>.
         </p>
 
-        <h2>13. Changes</h2>
+        <h2>16. Changes</h2>
         <p>If we change this policy we will update the date above and, for important changes, tell you in the app.</p>
 
         <p style="margin-top:2rem"><a href="/pulse/">Back to Pulse</a></p>
